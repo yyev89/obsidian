@@ -4,15 +4,19 @@
     "type": "split",
     "children": [
       {
-        "id": "be3b928079a02792",
+        "id": "08563b1ebc94ac35",
         "type": "tabs",
         "children": [
           {
-            "id": "2adcb4a0a6a91769",
+            "id": "2d84192ce54b889c",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "linux/dotfiles.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -81,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "python/list comprehension.md",
+                "file": "linux/dotfiles.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "python/list comprehension.md",
+                "file": "linux/dotfiles.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -121,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "python/list comprehension.md"
+                "file": "linux/dotfiles.md"
               }
             }
           }
@@ -143,18 +147,20 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "245172be8768e9e4",
+  "active": "2d84192ce54b889c",
   "lastOpenFiles": [
+    "linux/dotfiles.md",
+    "README.md",
+    "linux/xargs.md",
+    "linux/lsof.md",
+    "linux/find.md",
+    "general/watch later.md",
     "general/AI request sample.md",
     "db/postgres commands.md",
     "db/sql functions.md",
-    "linux/find.md",
     "python/list comprehension.md",
-    "linux/lsof.md",
     "db/sqlite config.md",
     "python",
-    "linux/xargs.md",
-    "general/watch later.md",
     "general/Docker compose (killerkoda).md",
     "db",
     "cmd line/nmap.md",

@@ -4,5 +4,5 @@
 - [ ] caddy web server
 - [ ] opentelemetry
 - [x] eBPF
-- [ ] Pika Backup (GNOME)
-- [ ] Proton Mail/Pass/Storage
+- [x] Pika Backup (GNOME)
+- [x] Proton Mail/Pass/Storage
