@@ -18,6 +18,7 @@ search for PID (oldest):
 pgrep -o bash
 ```
 
+### built-ins and keywords:
 built-ins commands are programs
 built-in [ ] have analog binary "test":
 ```bash
@@ -38,3 +39,14 @@ allows to use > <
 support grouping expressions with () and pattern matching, regex
 pros: more support, wider selection of conditional evaluation
 cons: lack of backward compatibility, not POSIX compliant
+
+### guard clause:
+```bash
+[[ -f "file.txt" ]] || echo "file does not exist"
+```
+```bash
+[[ -z ${1} ]] || echo "argument is empty"
+```
+```bash
+[[ -f "file.txt" ]] || { echo "file does not exist"; exit 1; }
+```
