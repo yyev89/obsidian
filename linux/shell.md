@@ -103,3 +103,63 @@ cat <<< "Hello world"
 PRINT_THIS_MESSAGE="This is message"
 cat <<< $PRINT_THIS_MESSAGE
 ```
+
+### Expansions
+Variable expansion:
+```bash
+#!/usr/bin/env bash
+height=180
+# Wrong:
+echo "Your height is: $heightcm"
+# Correct:
+echo "Your height is: ${height}cm"
+# Default value 'Unknown' for undefined varible 'name':
+echo "Hello, ${name:-Unknown}"
+```
+
+String manipulation:
+```bash
+name="John Doe"
+# Prints 'Hello, John':
+echo "Hello, ${name:0:4}"
+```
+
+String replacement:
+```bash
+path="/home/user/file.txt"
+# Change 'file' to 'data':
+echo "{path/file/data}"
+```
+
+String length:
+```bash
+name="John Doe"
+# Outputs '8':
+echo "${#name}"
+```
+
+Using prefix and suffix (case sensetive):
+```bash
+greetings="Hello world"
+# Remove 'H' or 'Hello' from string, must match the beginning:
+echo "${greetings#H}"
+echo "${greetings#Hello}"
+# Remove 'd':
+echo "${greetings%d}"
+# Remove everything before space to 'DevOps Engineer':
+export position="Junion DevOps Engineer"
+echo "${position#* }"
+# Remove last word after space to 'Junior DevOps':
+echo "${position% *}"
+```
+
+`##` - longest prefix (to the last) pattern removal
+`%%` - longest suffix (the the last) pattern removal
+```bash
+my_text_file="/home/my_username/text_file.txt"
+# output 'text_file.txt':
+echo "${my_text_file##*/}"
+# output '/home/my_username/text_file':
+echo "${my_text_file%.*}"
+echo "${my_text_file%%.*}"
+```
