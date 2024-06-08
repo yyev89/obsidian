@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "9b8797ec3e4aed40",
+        "id": "03270767f19b51d7",
         "type": "tabs",
         "children": [
           {
-            "id": "a9d62878c6f024f3",
+            "id": "48212140071c21fa",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "linux/shell.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/shell.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/shell.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "linux/shell.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,12 +139,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "a9d62878c6f024f3",
+  "active": "48212140071c21fa",
   "lastOpenFiles": [
+    "linux/shell.md",
+    "linux/dig.md",
+    "linux/grep.md",
     "linux/curl.md",
     "linux/globs.md",
-    "linux/shell.md",
-    "linux/grep.md",
     "Untitled.md",
     "linux/lsof.md",
     "linux/xargs.md",
