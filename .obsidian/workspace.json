@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/curl.md",
+                "file": "linux/shell.md",
                 "mode": "preview",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/curl.md",
+                "file": "linux/shell.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/curl.md",
+                "file": "linux/shell.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/curl.md"
+                "file": "linux/shell.md"
               }
             }
           }
@@ -149,8 +149,8 @@
   },
   "active": "a9d62878c6f024f3",
   "lastOpenFiles": [
-    "linux/globs.md",
     "linux/curl.md",
+    "linux/globs.md",
     "linux/shell.md",
     "linux/grep.md",
     "Untitled.md",

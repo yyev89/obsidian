@@ -116,6 +116,8 @@ echo "Your height is: ${height}cm"
 # Default value 'Unknown' for undefined varible 'name':
 echo "Hello, ${name:-Unknown}"
 ```
+`{}` - protect as boundaries
+`""` - expands variable as an atomic token (not list)
 
 String manipulation:
 ```bash
@@ -157,9 +159,72 @@ echo "${position% *}"
 `%%` - longest suffix (the the last) pattern removal
 ```bash
 my_text_file="/home/my_username/text_file.txt"
-# output 'text_file.txt':
+# Output 'text_file.txt':
 echo "${my_text_file##*/}"
-# output '/home/my_username/text_file':
+# Output '/home/my_username/text_file':
 echo "${my_text_file%.*}"
 echo "${my_text_file%%.*}"
+```
+
+Brace expansion:
+```bash
+echo file{1,2,3}
+# Using range:
+echo file{1..5}
+# Nested:
+echo {a,b}{1,2,3}
+# Step-based range with step '2' (bash 4.0+):
+echo file{1..10..2}
+# Prefix and postfix:
+echo pre-{A..C}-post
+# Using in loops:
+for i in {1..3}; do touch "file${i}.txt"; done
+```
+
+Command substitution expansion:
+```bash
+file_count=$(find . -type f | wc -l)
+# Deprecated, not a best practice:
+file_count=`find . -type f | wc -l`
+```
+
+subshell - child process by parent shell, that inherits env variables, but don't propagade variables back to parent shell, and generates an additional PID (can be performance impact)
+
+Stores only stdout, NOT stderr, for this use:
+```bash
+files=$(ls -j 2>&1)
+```
+
+Example - we are reassigning var to 'b' inside a subshell, but back on the parent shell, it's value is still 'a':
+```bash
+#!/usr/bin/env bash
+var="a"
+subshell=$(var="b")
+# Output 'a':
+echo "${var}"
+# Output 'b':
+echo "${subshell}"
+```
+
+`$$` - PID of the parent shell
+`$BASHPID` - PID of the current shell
+
+Propagate values to parent shell example:
+```bash
+#!/usr/bin/env bash
+# Creates unique number:
+tmpfile="/tmp/$$.tmp"
+counter=1
+
+echo "${counter}" > ${tmpfile}
+
+(
+counter="$(($(cat ${tmpfile}) + 1))"
+echo "${counter}" > ${tmpfile}
+)
+
+counter=$(cat ${tmpfile})
+echo "${counter}"
+# Removes a single temp file:
+unlink "${tmpfile}"
 ```
