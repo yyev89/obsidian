@@ -228,3 +228,47 @@ echo "${counter}"
 # Removes a single temp file:
 unlink "${tmpfile}"
 ```
+
+### Special variables
+`$?` - stores the exit status of the command, script, or function
+
+Reserved exit codes:
+`0` success
+`2` misuse of shell built-ins
+`126` cannot execute
+`127` command not found
+`128+n` fatal error signal "n"
+`130` script terminated by Control-C
+`255*` exit status out of range
+`128+` recommended to use in own scripts
+
+`set -e` - flag that makes a script exit when a command produces a non-success exit status
+
+Example:
+```bash
+#!/usr/bin/env bash
+set -e
+readonly conf_file="./fqdn.properties"
+readonly server_names="server1 server2 server3"
+readonly default_user="mummshad"
+readonly error_file=150
+
+terminate() {
+	local msg="${1}"
+	local code="${2:-160}"
+	echo "Error: ${msg}" >&2
+	exit "${code}"
+}
+
+if [[ ! -s "${conf_file}" ]]; then
+	terminate "FQDN file is empty" "${error_file}"
+fi
+
+fqdn=$(cat "${conf_file})
+
+for server in ${server_names}; do
+	echo "${default_user}@${server}.${fqdn}"
+done
+
+exit 1
+```
