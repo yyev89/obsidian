@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "linux/shell.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -149,16 +149,16 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "linux/shell.md",
-    "linux/dig.md",
-    "linux/grep.md",
-    "linux/curl.md",
-    "linux/globs.md",
-    "Untitled.md",
-    "linux/lsof.md",
     "linux/xargs.md",
-    "linux/dotfiles.md",
+    "linux/shell.md",
+    "linux/lsof.md",
+    "linux/grep.md",
+    "linux/globs.md",
     "linux/find.md",
+    "linux/dotfiles.md",
+    "linux/dig.md",
+    "linux/curl.md",
+    "Untitled.md",
     "README.md",
     "general/watch later.md",
     "general/AI request sample.md",

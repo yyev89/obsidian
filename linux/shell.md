@@ -116,8 +116,8 @@ echo "Your height is: ${height}cm"
 # Default value 'Unknown' for undefined varible 'name':
 echo "Hello, ${name:-Unknown}"
 ```
-`{}` - protect as boundaries
-`""` - expands variable as an atomic token (not list)
+`{}` protect as boundaries
+`""` expands variable as an atomic token (not list)
 
 String manipulation:
 ```bash
@@ -155,8 +155,8 @@ echo "${position#* }"
 echo "${position% *}"
 ```
 
-`##` - longest prefix (to the last) pattern removal
-`%%` - longest suffix (the the last) pattern removal
+`##` longest prefix (to the last) pattern removal
+`%%` longest suffix (the the last) pattern removal
 ```bash
 my_text_file="/home/my_username/text_file.txt"
 # Output 'text_file.txt':
@@ -206,8 +206,8 @@ echo "${var}"
 echo "${subshell}"
 ```
 
-`$$` - PID of the parent shell
-`$BASHPID` - PID of the current shell
+`$$` PID of the parent shell
+`$BASHPID` PID of the current shell
 
 Propagate values to parent shell example:
 ```bash
@@ -230,7 +230,7 @@ unlink "${tmpfile}"
 ```
 
 ### Special variables
-`$?` - stores the exit status of the command, script, or function
+`$?` stores the exit status of the command, script, or function
 
 Reserved exit codes:
 `0` success
@@ -242,7 +242,7 @@ Reserved exit codes:
 `255*` exit status out of range
 `128+` recommended to use in own scripts
 
-`set -e` - flag that makes a script exit when a command produces a non-success exit status
+`set -e` flag that makes a script exit when a command produces a non-success exit status
 
 Example:
 ```bash
@@ -272,3 +272,76 @@ done
 
 exit 1
 ```
+
+`$#` stores the number of arguments passed to a script or function
+
+If no arguments provided to script, it will use empty string instead. To avoid unexpected behavior, user guard clause:
+```bash
+#!/usr/bin/env bash
+if [[ ! $# -eq 1 ]]; then
+	echo "Error: provide one argument"
+	exit 1
+fi
+
+echo ${1}
+```
+
+IFS (Internal Field Separator) - special shell variable
+IFS=$' \t\n' Ansi-C quoting block with space, tab, new line
+Redefining default value of IFS inside the script:
+```bash
+#!/usr/bin/env bash
+IFS=":"
+
+elements="element1:element2:element3"
+for element in ${elements}; do
+	echo "${element} is now separated from the elements list"
+done
+```
+
+`$*`,`$@` package all the command-line arguments into 1 single variable, that holds all the values in one single place:
+```bash
+#!/usr/bin/env bash
+echo "Number of arguments: $#"
+echo "All arguments: $@"
+
+for arg in "$@"; do
+	echo "Argument: $arg"
+done
+```
+
+BUT: `$@` keeps every single argument separated from each other, while `$*` groups them togather in one entity and cant be accessed individually
+Adding these variables directly in the FOR loop without prior variable assignation is only recommended when IFS isn't being overwritten
+
+`$!` stores information about the last executed command tha was sent to the background:
+```bash
+#!/usr/bin/env bash
+jmeter_server_pid=""
+
+start_jmeter() {
+	echo "Starting jmeter..."
+	jmeter-server &
+	jmeter_server_pid=$(echo $!)
+}
+
+start_jmeter
+
+# Simulating more commands running:
+echo "more commands running..."
+
+echo "Terminating jmeter server by using ${jmeter_server_pid} PID"
+kill -SIGTERM "${jmeter_server_pid}"
+```
+
+`$0` can help get the name of the script being executed, and get the absolute path of the directory where a script is being executed
+When used in interactive mode directly in the terminal, it gets the name of the parent shell for the current TTY session
+```bash
+#!/usr/bin/env bash
+readonly work_dir=$(dirname $(readlink -f "$0"))
+readonly script_name="${0##*/}"
+cd "${work_dir}/.."
+# More commands...
+```
+
+`$_` represents the last (one!) argument of the previous command
+`$-` reflects the options or flags of the current shell
