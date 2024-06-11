@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/shell.md",
-                "mode": "source",
+                "file": "linux/jq.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/shell.md",
+                "file": "linux/jq.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/shell.md",
+                "file": "linux/jq.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/shell.md"
+                "file": "linux/jq.md"
               }
             }
           }
@@ -149,13 +149,14 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "linux/xargs.md",
-    "linux/shell.md",
     "linux/lsof.md",
-    "linux/grep.md",
-    "linux/globs.md",
     "linux/find.md",
     "linux/dotfiles.md",
+    "linux/globs.md",
+    "linux/grep.md",
+    "linux/jq.md",
+    "linux/shell.md",
+    "linux/xargs.md",
     "linux/dig.md",
     "linux/curl.md",
     "Untitled.md",
@@ -179,7 +180,6 @@
     "2024-02-08.md",
     "Red Pill, Blue Pill.md",
     "NeverNote.md",
-    "The Matrix.md",
-    "NoteStar.md"
+    "The Matrix.md"
   ]
 }
