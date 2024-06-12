@@ -345,3 +345,72 @@ cd "${work_dir}/.."
 
 `$_` represents the last (one!) argument of the previous command
 `$-` reflects the options or flags of the current shell
+
+### Arrays
+
+`declare` specify the type of data assigned to a variable:
+```bash
+#!/usr/bin/env bash
+declare -i i=10
+echo $(($i+1))
+i="hello"
+# Will output '0' (default value):
+echo "${i}"
+```
+
+`-i` type integer
+`-r` read only
+`-u` auto convert to UPPER case
+`-l` auto convert to lower case
+`-a` type array
+
+To add value to an array [] with index number are used:
+`course_section[0]="Intro"`
+
+By default, if no index provided, array returns the first element with index 0
+Get all elements at once:
+```bash
+#!/usr/bin/env bash
+course_sections[0]="Intro"
+course_sections[1]="Coding standards"
+
+echo "${cource_sections[@]}"
+```
+
+Declare the array in one line, add elements:
+```bash
+#!/usr/bin/env bash
+course_sections=("Intro" "Coding standards" "Refresher")
+# Add element into array manually:
+course_sections[3]="Syntax"
+# Using construct to get the number of elements:
+course_sections[${#course_sections[@]}]="Syntax"
+# Will replace element at index 0:
+course_sections="Something"
+
+echo "${course_sections[@]}"
+```
+
+Insert element inside the array:
+```bash
+#!/usr/bin/env bash
+declare -a servers=("server1" "server2" "server3")
+
+# Insert new element at index 1, shifting the remaining elements:
+servers=("${servers[@]:0:1})" "server1.5" "${servers[@]:1}"
+
+echo "${servers[@]}"
+```
+
+`unset servers[1]` delete element with index '1'
+`unset servers` delete all elements from the array
+
+Append elements to the end of the array:
+```bash
+array+=("four" "five" "six")
+```
+
+Sort array with `sort` command:
+```bash
+printf "%s\n" "${chars[@]}" | sort
+```

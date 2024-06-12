@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/jq.md",
-                "mode": "preview",
+                "file": "linux/shell.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -69,7 +69,8 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200
+    "width": 200,
+    "collapsed": true
   },
   "right": {
     "id": "d7847edfa5bec91c",
@@ -85,7 +86,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/jq.md",
+                "file": "linux/shell.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +103,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/jq.md",
+                "file": "linux/shell.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +126,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/jq.md"
+                "file": "linux/shell.md"
               }
             }
           }
@@ -149,12 +150,12 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
+    "linux/jq.md",
     "linux/lsof.md",
     "linux/find.md",
     "linux/dotfiles.md",
     "linux/globs.md",
     "linux/grep.md",
-    "linux/jq.md",
     "linux/shell.md",
     "linux/xargs.md",
     "linux/dig.md",
