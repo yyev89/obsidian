@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/shell.md",
-                "mode": "source",
+                "file": "linux/df, du.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -69,8 +69,7 @@
       }
     ],
     "direction": "horizontal",
-    "width": 200,
-    "collapsed": true
+    "width": 200
   },
   "right": {
     "id": "d7847edfa5bec91c",
@@ -86,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/shell.md",
+                "file": "linux/df, du.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -103,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/shell.md",
+                "file": "linux/df, du.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -126,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/shell.md"
+                "file": "linux/df, du.md"
               }
             }
           }
@@ -150,13 +149,14 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
+    "linux/shell.md",
+    "linux/df, du.md",
     "linux/jq.md",
     "linux/lsof.md",
     "linux/find.md",
     "linux/dotfiles.md",
     "linux/globs.md",
     "linux/grep.md",
-    "linux/shell.md",
     "linux/xargs.md",
     "linux/dig.md",
     "linux/curl.md",
@@ -180,7 +180,6 @@
     "Untitled.canvas",
     "2024-02-08.md",
     "Red Pill, Blue Pill.md",
-    "NeverNote.md",
-    "The Matrix.md"
+    "NeverNote.md"
   ]
 }
