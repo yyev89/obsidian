@@ -3,6 +3,7 @@
 - [ ] oracle cloud
 - [ ] caddy web server
 - [ ] opentelemetry
+- [ ] ps, top, w, sar, tcdump, ss/netstat, iotop, vmstat, uptime, pmap, mtr, iostat, free, lsof, strace, iproute2
 - [x] eBPF
 - [x] Pika Backup (GNOME)
 - [x] Proton Mail/Pass/Storage

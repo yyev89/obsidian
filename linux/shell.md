@@ -414,3 +414,22 @@ Sort array with `sort` command:
 ```bash
 printf "%s\n" "${chars[@]}" | sort
 ```
+
+Associative array (-A):
+```bash
+#!/usr/bin/env bash
+declare -A drawer=(["shirts"]="T-Shirts and polo" ["sports"]="All sports clothing" ["socks"]="Everyday socks")
+# Add new element:
+drawer["coats"]="Some winter coats"
+# Replace existing element's value:
+drawer["socks"]="Another socks"
+# Remove element:
+unset drawer["socks"]
+# Remove all:
+unset drawer[@]
+# Show only key names:
+echo "${!drawer[@]}"
+
+echo "${drawer["socks"]}"
+```
+

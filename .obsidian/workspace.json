@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/df, du.md",
-                "mode": "preview",
+                "file": "linux/shell.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/df, du.md",
+                "file": "linux/shell.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/df, du.md",
+                "file": "linux/shell.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/df, du.md"
+                "file": "linux/shell.md"
               }
             }
           }
@@ -149,20 +149,20 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
+    "linux/grep.md",
     "linux/shell.md",
+    "general/watch later.md",
     "linux/df, du.md",
     "linux/jq.md",
     "linux/lsof.md",
     "linux/find.md",
     "linux/dotfiles.md",
     "linux/globs.md",
-    "linux/grep.md",
     "linux/xargs.md",
     "linux/dig.md",
     "linux/curl.md",
     "Untitled.md",
     "README.md",
-    "general/watch later.md",
     "general/AI request sample.md",
     "db/postgres commands.md",
     "db/sql functions.md",
