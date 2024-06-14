@@ -243,6 +243,8 @@ Reserved exit codes:
 `128+` recommended to use in own scripts
 
 `set -e` flag that makes a script exit when a command produces a non-success exit status
+`set -u` exits when an unset variable is used
+`set -o pipefail` catches errors in piped commands
 
 Example:
 ```bash
@@ -433,3 +435,12 @@ echo "${!drawer[@]}"
 echo "${drawer["socks"]}"
 ```
 
+No-op command ("no output" equivavelnt to dry-run option):
+```bash
+#!/usr/bin/env bash
+if [[ "$1" = "start" ]]; then
+  :
+else
+  echo "Invalid command."
+fi
+```
