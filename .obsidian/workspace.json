@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/shell.md",
+                "file": "linux/awk.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/shell.md",
+                "file": "linux/awk.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/shell.md",
+                "file": "linux/awk.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/shell.md"
+                "file": "linux/awk.md"
               }
             }
           }
@@ -149,9 +149,13 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "linux/grep.md",
-    "linux/shell.md",
+    "db/sql functions.md",
+    "db/postgres commands.md",
+    "db/sqlite config.md",
+    "linux/awk.md",
     "general/watch later.md",
+    "linux/shell.md",
+    "linux/grep.md",
     "linux/df, du.md",
     "linux/jq.md",
     "linux/lsof.md",
@@ -164,10 +168,7 @@
     "Untitled.md",
     "README.md",
     "general/AI request sample.md",
-    "db/postgres commands.md",
-    "db/sql functions.md",
     "python/list comprehension.md",
-    "db/sqlite config.md",
     "python",
     "general/Docker compose (killerkoda).md",
     "db",
@@ -179,7 +180,6 @@
     "Welcome.md",
     "Untitled.canvas",
     "2024-02-08.md",
-    "Red Pill, Blue Pill.md",
-    "NeverNote.md"
+    "Red Pill, Blue Pill.md"
   ]
 }

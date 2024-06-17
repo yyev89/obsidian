@@ -439,8 +439,18 @@ No-op command ("no output" equivavelnt to dry-run option):
 ```bash
 #!/usr/bin/env bash
 if [[ "$1" = "start" ]]; then
-  :
+	:
 else
-  echo "Invalid command."
+	echo "Invalid command."
 fi
+```
+
+### Logging
+```bash
+#!/usr/bin/env bash
+log() {
+	echo $(date -u +"%Y-%m-%dT%H:%M:%SZ") "${@}"
+}
+
+log "hello world"
 ```
