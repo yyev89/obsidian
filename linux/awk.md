@@ -36,3 +36,30 @@ print last column in each line:
 awk '{ print $NF }' size.txt
 ```
 
+`-F` specify the field separator:
+```bash
+awk -F ":" '{ print $1 }' sizeV1.txt
+```
+
+`BEGIN` token with meaning not to expect any input
+`-v` declare a variable before executing the action block or program:
+```bash
+awk -v var="hello, world" 'BEGIN { print var }'
+awk -F "|" -v var="Employee's first name: " '{ print var, $2 }' employees.txt
+```
+
+using conditions:
+```bash
+awk -F "|" -v high_salary="9000" '$7 >= high_salary { print $2 }' employees.txt
+awk -F "|" -v high_salary="9000" -v low_salary="6500" '$7 >= high_salary || $7 <= low_salary { print $2 }' employees.txt
+```
+
+combine with shell:
+```bash
+#!/usr/bin/env bash
+awk -v hello="hello world" 'BEGIN {
+	print hello
+}'
+```
+
+

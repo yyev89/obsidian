@@ -1,5 +1,4 @@
 - [ ] quic protocol
-- [ ] alpine /amazon linux
 - [ ] oracle cloud
 - [ ] caddy web server
 - [ ] opentelemetry
