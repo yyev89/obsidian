@@ -149,8 +149,9 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "general/watch later.md",
+    "linux/sed.md",
     "linux/awk.md",
+    "general/watch later.md",
     "linux/grep.md",
     "db/sql functions.md",
     "db/postgres commands.md",
@@ -179,7 +180,6 @@
     "general",
     "Welcome.md",
     "Untitled.canvas",
-    "2024-02-08.md",
-    "Red Pill, Blue Pill.md"
+    "2024-02-08.md"
   ]
 }
