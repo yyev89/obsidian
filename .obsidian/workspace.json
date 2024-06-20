@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/awk.md",
+                "file": "general/git.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/awk.md",
+                "file": "general/git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/awk.md",
+                "file": "general/git.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/awk.md"
+                "file": "general/git.md"
               }
             }
           }
@@ -149,8 +149,10 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "linux/sed.md",
+    "linux/hardware.md",
+    "general/git.md",
     "linux/awk.md",
+    "linux/sed.md",
     "general/watch later.md",
     "linux/grep.md",
     "db/sql functions.md",
@@ -178,8 +180,6 @@
     "linux",
     "general",
     "general",
-    "Welcome.md",
-    "Untitled.canvas",
-    "2024-02-08.md"
+    "Untitled.canvas"
   ]
 }
