@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/git.md",
+                "file": "linux/top.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/git.md",
+                "file": "linux/top.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/git.md",
+                "file": "linux/top.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/git.md"
+                "file": "linux/top.md"
               }
             }
           }
@@ -149,10 +149,12 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "linux/hardware.md",
-    "general/git.md",
-    "linux/awk.md",
     "linux/sed.md",
+    "linux/system init.md",
+    "linux/top.md",
+    "general/git.md",
+    "linux/hardware.md",
+    "linux/awk.md",
     "general/watch later.md",
     "linux/grep.md",
     "db/sql functions.md",
@@ -163,7 +165,6 @@
     "linux/jq.md",
     "linux/lsof.md",
     "linux/find.md",
-    "linux/dotfiles.md",
     "linux/globs.md",
     "linux/xargs.md",
     "linux/dig.md",
@@ -176,7 +177,6 @@
     "general/Docker compose (killerkoda).md",
     "db",
     "cmd line/nmap.md",
-    "Untitled 1.md",
     "linux",
     "general",
     "general",

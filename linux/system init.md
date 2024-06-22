@@ -23,5 +23,5 @@ echo 'eval "$(starship init bash)"' >> ~/.bashrc
 ```
 ### useful programms:
 ```bash
-sudo apt install -y git exa htop
+sudo apt install -y git exa htop xsel stow
 ```
