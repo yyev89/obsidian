@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/top.md",
+                "file": "general/vim.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/top.md",
+                "file": "general/vim.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/top.md",
+                "file": "general/vim.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/top.md"
+                "file": "general/vim.md"
               }
             }
           }
@@ -149,9 +149,11 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "linux/sed.md",
+    "linux/find.md",
+    "general/vim.md",
     "linux/system init.md",
     "linux/top.md",
+    "linux/sed.md",
     "general/git.md",
     "linux/hardware.md",
     "linux/awk.md",
@@ -164,7 +166,6 @@
     "linux/df, du.md",
     "linux/jq.md",
     "linux/lsof.md",
-    "linux/find.md",
     "linux/globs.md",
     "linux/xargs.md",
     "linux/dig.md",
@@ -176,7 +177,6 @@
     "python",
     "general/Docker compose (killerkoda).md",
     "db",
-    "cmd line/nmap.md",
     "linux",
     "general",
     "general",

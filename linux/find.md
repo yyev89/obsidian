@@ -13,6 +13,11 @@ find exact name:
 find Downloads/ -name receipt.pdf
 ```
 
+find case-insensetive name:
+```bash
+find Downloads/ -iname receipt.pdf
+```
+
 find all pdf files:
 ```bash
 find Downloads/ -name '*.pdf'
@@ -49,4 +54,31 @@ find Downloads/ -size +20M -delete
 perform action for every file in search:
 ```bash
 find Downloads/ -type f -exec sha1sum {} \;
+```
+
+find with permissions:
+```bash
+find Downloads/ -perm 644
+# At least: -644
+# Any of these: /644
+```
+
+find with modified minute:
+```bash
+# 5 mins from current time:
+find -mmin 5
+# 5 mins and less:
+find -mmin -5
+# more than 5 mins ago:
+find -mmin +5
+```
+
+find with modification content time (24 hour period):
+```bash
+find -mtime <number>
+```
+
+find with change metadata time:
+```bash
+find -cmin -5
 ```
