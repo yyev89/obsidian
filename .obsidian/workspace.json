@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/cut.md",
+                "file": "linux/xargs.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/cut.md",
+                "file": "linux/xargs.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/cut.md",
+                "file": "linux/xargs.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/cut.md"
+                "file": "linux/xargs.md"
               }
             }
           }
@@ -149,6 +149,9 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
+    "linux/top.md",
+    "general/git.md",
+    "linux/cut.md",
     "linux/curl.md",
     "linux/system init.md",
     "linux/shell.md",
@@ -161,12 +164,9 @@
     "linux/find.md",
     "linux/dig.md",
     "linux/df, du.md",
-    "linux/cut.md",
     "linux/awk.md",
     "linux/xargs.md",
-    "linux/top.md",
     "general/vim.md",
-    "general/git.md",
     "general/watch later.md",
     "db/sql functions.md",
     "db/postgres commands.md",
