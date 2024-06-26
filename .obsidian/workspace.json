@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/vim.md",
+                "file": "linux/cut.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/vim.md",
+                "file": "linux/cut.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/vim.md",
+                "file": "linux/cut.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/vim.md"
+                "file": "linux/cut.md"
               }
             }
           }
@@ -149,33 +149,33 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "linux/find.md",
-    "general/vim.md",
+    "linux/curl.md",
     "linux/system init.md",
-    "linux/top.md",
+    "linux/shell.md",
     "linux/sed.md",
-    "general/git.md",
+    "linux/lsof.md",
+    "linux/jq.md",
     "linux/hardware.md",
-    "linux/awk.md",
-    "general/watch later.md",
     "linux/grep.md",
+    "linux/globs.md",
+    "linux/find.md",
+    "linux/dig.md",
+    "linux/df, du.md",
+    "linux/cut.md",
+    "linux/awk.md",
+    "linux/xargs.md",
+    "linux/top.md",
+    "general/vim.md",
+    "general/git.md",
+    "general/watch later.md",
     "db/sql functions.md",
     "db/postgres commands.md",
     "db/sqlite config.md",
-    "linux/shell.md",
-    "linux/df, du.md",
-    "linux/jq.md",
-    "linux/lsof.md",
-    "linux/globs.md",
-    "linux/xargs.md",
-    "linux/dig.md",
-    "linux/curl.md",
     "Untitled.md",
     "README.md",
     "general/AI request sample.md",
     "python/list comprehension.md",
     "python",
-    "general/Docker compose (killerkoda).md",
     "db",
     "linux",
     "general",
