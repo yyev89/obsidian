@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/xargs.md",
+                "file": "linux/tr.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/xargs.md",
+                "file": "linux/tr.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/xargs.md",
+                "file": "linux/tr.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/xargs.md"
+                "file": "linux/tr.md"
               }
             }
           }
@@ -149,10 +149,13 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
+    "linux/curl.md",
+    "linux/awk.md",
+    "linux/tr.md",
+    "linux/xargs.md",
     "linux/top.md",
     "general/git.md",
     "linux/cut.md",
-    "linux/curl.md",
     "linux/system init.md",
     "linux/shell.md",
     "linux/sed.md",
@@ -164,8 +167,6 @@
     "linux/find.md",
     "linux/dig.md",
     "linux/df, du.md",
-    "linux/awk.md",
-    "linux/xargs.md",
     "general/vim.md",
     "general/watch later.md",
     "db/sql functions.md",
@@ -174,7 +175,6 @@
     "Untitled.md",
     "README.md",
     "general/AI request sample.md",
-    "python/list comprehension.md",
     "python",
     "db",
     "linux",
