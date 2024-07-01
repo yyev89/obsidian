@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "README.md",
-                "mode": "preview",
+                "file": "general/git.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "README.md",
+                "file": "general/git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "README.md",
+                "file": "general/git.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "README.md"
+                "file": "general/git.md"
               }
             }
           }
@@ -149,20 +149,24 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
+    "general/AI request sample.md",
+    "linux/diff.md",
+    "linux/cut.md",
+    "linux/curl.md",
+    "general/git.md",
+    "general/vim.md",
+    "linux/dig.md",
+    "linux/df, du.md",
+    "linux/awk.md",
+    "README.md",
     "db/sqlite config.md",
     "db/sql functions.md",
     "python/list comprehension.md",
-    "general/vim.md",
-    "general/git.md",
     "linux/grep.md",
     "linux/top.md",
-    "linux/dig.md",
-    "linux/awk.md",
     "general/watch later.md",
     "linux/tr.md",
-    "linux/curl.md",
     "linux/xargs.md",
-    "linux/cut.md",
     "linux/system init.md",
     "linux/shell.md",
     "linux/sed.md",
@@ -171,10 +175,6 @@
     "linux/hardware.md",
     "linux/globs.md",
     "linux/find.md",
-    "linux/df, du.md",
-    "db/postgres commands.md",
-    "Untitled.md",
-    "README.md",
     "python",
     "db",
     "linux",

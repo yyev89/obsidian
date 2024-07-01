@@ -47,3 +47,25 @@ revert commit in the middle with opposit changes (creates new commit):
 ```bash
 git revert <hash>
 ```
+
+recover deleted branch:
+```bash
+git reflog
+git branch develop <hash>
+```
+
+moving commit to a new branch (which didn't exist):
+```bash
+git branch feature/login
+# Clean up main:
+git reset --hard HEAD~1
+```
+
+moving commit to a different branch (which existed before):
+```bash
+git checkout feature/newsletter
+git cherry-pick <hash>
+# Clean up main:
+git checkout main
+git reset --hard HEAD~1
+```
