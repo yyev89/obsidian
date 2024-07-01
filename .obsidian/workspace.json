@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/watch later.md",
-                "mode": "source",
+                "file": "README.md",
+                "mode": "preview",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/watch later.md",
+                "file": "README.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/watch later.md",
+                "file": "README.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/watch later.md"
+                "file": "README.md"
               }
             }
           }
@@ -149,12 +149,19 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
+    "db/sqlite config.md",
+    "db/sql functions.md",
+    "python/list comprehension.md",
+    "general/vim.md",
     "general/git.md",
+    "linux/grep.md",
+    "linux/top.md",
+    "linux/dig.md",
+    "linux/awk.md",
+    "general/watch later.md",
     "linux/tr.md",
     "linux/curl.md",
-    "linux/awk.md",
     "linux/xargs.md",
-    "linux/top.md",
     "linux/cut.md",
     "linux/system init.md",
     "linux/shell.md",
@@ -162,19 +169,12 @@
     "linux/lsof.md",
     "linux/jq.md",
     "linux/hardware.md",
-    "linux/grep.md",
     "linux/globs.md",
     "linux/find.md",
-    "linux/dig.md",
     "linux/df, du.md",
-    "general/vim.md",
-    "general/watch later.md",
-    "db/sql functions.md",
     "db/postgres commands.md",
-    "db/sqlite config.md",
     "Untitled.md",
     "README.md",
-    "general/AI request sample.md",
     "python",
     "db",
     "linux",
