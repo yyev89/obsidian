@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/git.md",
+                "file": "linux/free.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/git.md",
+                "file": "linux/free.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/git.md",
+                "file": "linux/free.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/git.md"
+                "file": "linux/free.md"
               }
             }
           }
@@ -149,11 +149,17 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
+    "general/watch later.md",
+    "linux/free.md",
+    "linux/uptime.md",
+    "linux/w.md",
+    "linux/top.md",
+    "linux/ps.md",
+    "general/git.md",
     "general/AI request sample.md",
     "linux/diff.md",
     "linux/cut.md",
     "linux/curl.md",
-    "general/git.md",
     "general/vim.md",
     "linux/dig.md",
     "linux/df, du.md",
@@ -163,18 +169,12 @@
     "db/sql functions.md",
     "python/list comprehension.md",
     "linux/grep.md",
-    "linux/top.md",
-    "general/watch later.md",
     "linux/tr.md",
     "linux/xargs.md",
     "linux/system init.md",
     "linux/shell.md",
     "linux/sed.md",
     "linux/lsof.md",
-    "linux/jq.md",
-    "linux/hardware.md",
-    "linux/globs.md",
-    "linux/find.md",
     "python",
     "db",
     "linux",

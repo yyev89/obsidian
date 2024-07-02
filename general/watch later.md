@@ -1,8 +1,6 @@
 - [ ] quic protocol
-- [ ] oracle cloud
-- [ ] caddy web server
 - [ ] opentelemetry
-- [ ] ps, w, sar, tcdump, ss/netstat, iotop, vmstat, uptime, pmap, mtr, iostat, free, strace, iproute2
+- [ ] sar, tcdump, ss/netstat, iotop, vmstat,  pmap, mtr, iostat, free, strace, iproute2
 - [ ] GitLab
 - [ ] Grafana stack
 - [ ] Kibana
