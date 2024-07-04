@@ -1,3 +1,4 @@
+### fixing mistakes
 merge main before pushing code:
 ```bash
 git checkout main
@@ -68,4 +69,31 @@ git cherry-pick <hash>
 # Clean up main:
 git checkout main
 git reset --hard HEAD~1
+```
+
+### branches
+create new branch:
+```bash
+git branch my-new-branch
+# Based on specific revision:
+git branch other-branch <hash>
+```
+
+change branch:
+```bash
+git checkout my-new-branch
+# Modern way:
+git switch other-branch
+```
+
+rename current HEAD branch:
+```bash
+git branch -m better-branch
+# Rename any other local branch:
+git branch -m old-branch new-branch
+```
+
+upload a local branch to remote:
+```bash
+git push -u origin local-branch
 ```

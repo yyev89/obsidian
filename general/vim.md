@@ -1,4 +1,4 @@
-### files and buffers
+### files and buffers:
 `:w filename` save current file to filename
 `:x` save and exit, or `ZZ`
 `:r filename` open another file in current

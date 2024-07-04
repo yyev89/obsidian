@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/free.md",
+                "file": "general/git.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/free.md",
+                "file": "general/git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/free.md",
+                "file": "general/git.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/free.md"
+                "file": "general/git.md"
               }
             }
           }
@@ -149,18 +149,19 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "general/watch later.md",
-    "linux/free.md",
+    "general/vim.md",
+    "general/git.md",
     "linux/uptime.md",
     "linux/w.md",
+    "linux/find.md",
+    "linux/free.md",
+    "general/watch later.md",
     "linux/top.md",
     "linux/ps.md",
-    "general/git.md",
     "general/AI request sample.md",
     "linux/diff.md",
     "linux/cut.md",
     "linux/curl.md",
-    "general/vim.md",
     "linux/dig.md",
     "linux/df, du.md",
     "linux/awk.md",
@@ -174,7 +175,6 @@
     "linux/system init.md",
     "linux/shell.md",
     "linux/sed.md",
-    "linux/lsof.md",
     "python",
     "db",
     "linux",
