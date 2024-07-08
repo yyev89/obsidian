@@ -39,6 +39,11 @@ git restore .
 git restore --source <hash> index.html
 ```
 
+discard all local changes, that are not commited yet (can't be undone):
+```bash
+git checkout .
+```
+
 discard chunks or lines in a file (interactive):
 ```bash
 git restore -p index.html
@@ -96,4 +101,44 @@ git branch -m old-branch new-branch
 upload a local branch to remote:
 ```bash
 git push -u origin local-branch
+```
+
+connect branches with each other (local and remote):
+```bash
+git branch --track feature origin/feature
+git checkout --track origin/feature
+```
+
+sync local and remote branches:
+```bash
+git pull
+# Always try git pull --rebase first, if you get merge conflict, you can undo everything with git rebase --abort and try with regular pull instead to solve that conflict
+git push
+# Check status:
+git branch -v
+```
+
+delete branch:
+```bash
+# Local:
+git branch -d feature
+# Remote:
+git push origin --delete feature
+```
+
+integrate changes from another branch into your current local HEAD branch:
+```bash
+git switch main
+git merge feature/uploader
+# Using rebase:
+git switch feature/uploader
+git rebase main
+```
+
+check which commits are in branch-2, but not in branch-1:
+```bash
+# Local:
+git log main..feature/uploader
+# Remote:
+git log origin/main..main
 ```
