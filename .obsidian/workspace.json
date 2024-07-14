@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/git.md",
+                "file": "general/docker.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/git.md",
+                "file": "general/docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/git.md",
+                "file": "general/docker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/git.md"
+                "file": "general/docker.md"
               }
             }
           }
@@ -149,13 +149,16 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "general/vim.md",
-    "general/git.md",
+    "linux/jq.md",
+    "general/docker.md",
+    "linux/tr.md",
     "linux/uptime.md",
     "linux/w.md",
+    "general/watch later.md",
+    "general/git.md",
+    "general/vim.md",
     "linux/find.md",
     "linux/free.md",
-    "general/watch later.md",
     "linux/top.md",
     "linux/ps.md",
     "general/AI request sample.md",
@@ -170,11 +173,8 @@
     "db/sql functions.md",
     "python/list comprehension.md",
     "linux/grep.md",
-    "linux/tr.md",
     "linux/xargs.md",
     "linux/system init.md",
-    "linux/shell.md",
-    "linux/sed.md",
     "python",
     "db",
     "linux",
