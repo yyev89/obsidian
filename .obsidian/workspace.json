@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/docker.md",
+                "file": "linux/ansible.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/docker.md",
+                "file": "linux/ansible.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/docker.md",
+                "file": "linux/ansible.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/docker.md"
+                "file": "linux/ansible.md"
               }
             }
           }
@@ -149,19 +149,20 @@
   },
   "active": "48212140071c21fa",
   "lastOpenFiles": [
-    "linux/jq.md",
     "general/docker.md",
+    "linux/ansible.md",
+    "general/AI request sample.md",
+    "general/watch later.md",
+    "general/vim.md",
+    "general/git.md",
+    "linux/jq.md",
     "linux/tr.md",
     "linux/uptime.md",
     "linux/w.md",
-    "general/watch later.md",
-    "general/git.md",
-    "general/vim.md",
     "linux/find.md",
     "linux/free.md",
     "linux/top.md",
     "linux/ps.md",
-    "general/AI request sample.md",
     "linux/diff.md",
     "linux/cut.md",
     "linux/curl.md",
@@ -174,7 +175,6 @@
     "python/list comprehension.md",
     "linux/grep.md",
     "linux/xargs.md",
-    "linux/system init.md",
     "python",
     "db",
     "linux",
