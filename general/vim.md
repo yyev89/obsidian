@@ -1,4 +1,5 @@
 ### files and buffers:
+`:edit filname` or `:e` open an existing file
 `:w filename` save current file to filename
 `:x` save and exit, or `ZZ`
 `:r filename` open another file in current
@@ -6,6 +7,7 @@
 `:bp` move to previous buffer
 `:bn` move to next buffer
 `:bd` close current buffer
+`:buffers` or `:ls` list buffers
 `:enew` open new clean file
 `:! cmd` run linux command
 `:split filename` open two files in horizontal split
