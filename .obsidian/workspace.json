@@ -14,7 +14,7 @@
               "type": "markdown",
               "state": {
                 "file": "python/linear search.md",
-                "mode": "preview",
+                "mode": "source",
                 "source": false
               }
             }
@@ -149,10 +149,11 @@
   },
   "active": "565612f239a027d7",
   "lastOpenFiles": [
-    "general/docker.md",
+    "README.md",
     "python/linear search.md",
-    "linux/grep.md",
     "linux/ansible.md",
+    "general/docker.md",
+    "linux/grep.md",
     "db/sqlite config.md",
     "db/postgres commands.md",
     "general/AI request sample.md",
@@ -174,7 +175,6 @@
     "linux/diff.md",
     "linux/df, du.md",
     "linux/Debian init.md",
-    "linux/cut.md",
     "python",
     "db",
     "linux",
