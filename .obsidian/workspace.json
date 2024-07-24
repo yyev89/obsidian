@@ -11,8 +11,12 @@
             "id": "565612f239a027d7",
             "type": "leaf",
             "state": {
-              "type": "empty",
-              "state": {}
+              "type": "markdown",
+              "state": {
+                "file": "python/linear search.md",
+                "mode": "preview",
+                "source": false
+              }
             }
           }
         ]
@@ -81,6 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
+                "file": "python/linear search.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -97,6 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
+                "file": "python/linear search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -118,7 +124,9 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {}
+              "state": {
+                "file": "python/linear search.md"
+              }
             }
           }
         ],
@@ -141,10 +149,13 @@
   },
   "active": "565612f239a027d7",
   "lastOpenFiles": [
+    "general/docker.md",
+    "python/linear search.md",
+    "linux/grep.md",
+    "linux/ansible.md",
     "db/sqlite config.md",
     "db/postgres commands.md",
     "general/AI request sample.md",
-    "general/docker.md",
     "linux/xargs.md",
     "linux/w.md",
     "linux/uptime.md",
@@ -156,7 +167,6 @@
     "linux/lsof.md",
     "linux/jq.md",
     "linux/hardware.md",
-    "linux/grep.md",
     "linux/globs.md",
     "linux/free.md",
     "linux/find.md",
@@ -165,8 +175,6 @@
     "linux/df, du.md",
     "linux/Debian init.md",
     "linux/cut.md",
-    "linux/curl.md",
-    "linux/ansible.md",
     "python",
     "db",
     "linux",
