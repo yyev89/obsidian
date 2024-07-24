@@ -5,9 +5,9 @@ cut -b 1 message.txt
 cut -b 7-11 message.txt
 ```
 
-`-c` character
-`-f` field
-`-b` byte
+- `-c` character
+- `-f` field
+- `-b` byte
 
 use the delimeter:
 ```bash

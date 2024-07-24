@@ -21,10 +21,10 @@ BEGIN {
 }
 ```
 
-`'{}'` tells the shell to treat the entire block as a single
-`NR` number of records (number of lines contained in a text)
-`NF` number of fields (number of variables in each line)
-`FILENAME` variable which holds name of the file, provided to awk
+- `'{}'` tells the shell to treat the entire block as a single
+- `NR` number of records (number of lines contained in a text)
+- `NF` number of fields (number of variables in each line)
+- `FILENAME` variable which holds name of the file, provided to awk
 
 print number of lines, first, and fourth columns of file:
 ```bash
@@ -41,7 +41,8 @@ awk '{ print $NF }' size.txt
 awk -F ":" '{ print $1 }' sizeV1.txt
 ```
 
-`BEGIN` token with meaning not to expect any input
+`BEGIN` token with meaning not to expect any input\
+
 `-v` declare a variable before executing the action block or program:
 ```bash
 awk -v var="hello, world" 'BEGIN { print var }'

@@ -23,8 +23,8 @@ show domain name, TTL, type of record and IP's:
 dig navek.org +noall +answer
 ```
 
-`+yaml` output in a yaml format
-`+norecurse` not recursive search
+- `+yaml` output in a yaml format
+- `+norecurse` not recursive search
 
 full recursive lookup with no-cached TTL:
 ```bash

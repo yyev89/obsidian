@@ -27,18 +27,18 @@ test 2 -eq 2; echo "two equals two"
 man test
 man [
 ```
-pros: more portable, widely supported
-cons: narrower selection of conditional
+- pros: more portable, widely supported
+- cons: narrower selection of conditional
 
 keywords are special words that parsed by shell, have no analog binary:
 ```bash
 [[ 2 -eq 2 ]]; echo "two equals two"
 ```
-more modern and feature reach
-allows to use > < 
-support grouping expressions with () and pattern matching, regex
-pros: more support, wider selection of conditional evaluation
-cons: lack of backward compatibility, not POSIX compliant
+- more modern and feature reach
+- allows to use > < 
+- support grouping expressions with () and pattern matching, regex
+- pros: more support, wider selection of conditional evaluation
+- cons: lack of backward compatibility, not POSIX compliant
 
 ### guard clause:
 ```bash
@@ -69,9 +69,10 @@ line2
 lineN
 EOF
 ```
-EOF - token, can be anything, which has 1:1 match
-EOF - End Of File
-EOL - End Of Line
+
+- EOF - token, can be anything, which has 1:1 match
+- EOF - End Of File
+- EOL - End Of Line
 
 ```bash
 ssh ubuntu@192.168.1.1 <<EOF
@@ -155,8 +156,8 @@ echo "${position#* }"
 echo "${position% *}"
 ```
 
-`##` longest prefix (to the last) pattern removal
-`%%` longest suffix (the the last) pattern removal
+- `##` longest prefix (to the last) pattern removal
+- `%%` longest suffix (the the last) pattern removal
 ```bash
 my_text_file="/home/my_username/text_file.txt"
 # Output 'text_file.txt':
@@ -206,8 +207,8 @@ echo "${var}"
 echo "${subshell}"
 ```
 
-`$$` PID of the parent shell
-`$BASHPID` PID of the current shell
+- `$$` PID of the parent shell
+- `$BASHPID` PID of the current shell
 
 Propagate values to parent shell example:
 ```bash
@@ -230,21 +231,22 @@ unlink "${tmpfile}"
 ```
 
 ### Special variables
+
 `$?` stores the exit status of the command, script, or function
 
 Reserved exit codes:
-`0` success
-`2` misuse of shell built-ins
-`126` cannot execute
-`127` command not found
-`128+n` fatal error signal "n"
-`130` script terminated by Control-C
-`255*` exit status out of range
-`128+` recommended to use in own scripts
+- `0` success
+- `2` misuse of shell built-ins
+- `126` cannot execute
+- `127` command not found
+- `128+n` fatal error signal "n"
+- `130` script terminated by Control-C
+- `255*` exit status out of range
+- `128+` recommended to use in own scripts
 
-`set -e` flag that makes a script exit when a command produces a non-success exit status
-`set -u` exits when an unset variable is used
-`set -o pipefail` catches errors in piped commands
+- `set -e` flag that makes a script exit when a command produces a non-success exit status
+- `set -u` exits when an unset variable is used
+- `set -o pipefail` catches errors in piped commands
 
 Example:
 ```bash
@@ -290,6 +292,7 @@ echo ${1}
 
 IFS (Internal Field Separator) - special shell variable
 IFS=$' \t\n' Ansi-C quoting block with space, tab, new line
+
 Redefining default value of IFS inside the script:
 ```bash
 #!/usr/bin/env bash
@@ -313,6 +316,7 @@ done
 ```
 
 BUT: `$@` keeps every single argument separated from each other, while `$*` groups them togather in one entity and cant be accessed individually
+
 Adding these variables directly in the FOR loop without prior variable assignation is only recommended when IFS isn't being overwritten
 
 `$!` stores information about the last executed command tha was sent to the background:
@@ -336,6 +340,7 @@ kill -SIGTERM "${jmeter_server_pid}"
 ```
 
 `$0` can help get the name of the script being executed, and get the absolute path of the directory where a script is being executed
+
 When used in interactive mode directly in the terminal, it gets the name of the parent shell for the current TTY session
 ```bash
 #!/usr/bin/env bash
@@ -345,8 +350,8 @@ cd "${work_dir}/.."
 # More commands...
 ```
 
-`$_` represents the last (one!) argument of the previous command
-`$-` reflects the options or flags of the current shell
+- `$_` represents the last (one!) argument of the previous command
+- `$-` reflects the options or flags of the current shell
 
 ### Arrays
 
@@ -360,16 +365,17 @@ i="hello"
 echo "${i}"
 ```
 
-`-i` type integer
-`-r` read only
-`-u` auto convert to UPPER case
-`-l` auto convert to lower case
-`-a` type array
+- `-i` type integer
+- `-r` read only
+- `-u` auto convert to UPPER case
+- `-l` auto convert to lower case
+- `-a` type array
 
 To add value to an array [] with index number are used:
 `course_section[0]="Intro"`
 
 By default, if no index provided, array returns the first element with index 0
+
 Get all elements at once:
 ```bash
 #!/usr/bin/env bash
@@ -404,8 +410,8 @@ servers=("${servers[@]:0:1})" "server1.5" "${servers[@]:1}"
 echo "${servers[@]}"
 ```
 
-`unset servers[1]` delete element with index '1'
-`unset servers` delete all elements from the array
+- `unset servers[1]` delete element with index '1'
+- `unset servers` delete all elements from the array
 
 Append elements to the end of the array:
 ```bash

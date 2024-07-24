@@ -11,12 +11,12 @@ free space on disk:
 df /
 ```
 
-`-h` human-readable powers of 1024
-`-H` powers of 1000
-`-i` inodes information
-`-T` filesystem types
-`-t ext4` show only ext4
-`-x ext4` show others than ext4
+- `-h` human-readable powers of 1024
+- `-H` powers of 1000
+- `-i` inodes information
+- `-T` filesystem types
+- `-t ext4` show only ext4
+- `-x ext4` show others than ext4
 
 show total amout of used space:
 ```bash
@@ -36,10 +36,10 @@ disk usage for the current directory recursively:
 du
 ```
 
-`-h` human-readable
-`--si` powers of 1000
-`-a` also show files
-`-s` total size of current directory
+- `-h` human-readable
+- `--si` powers of 1000
+- `-a` also show files
+- `-s` total size of current directory
 
 total summary for /tmp and /root directories:
 ```bash

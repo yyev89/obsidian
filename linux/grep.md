@@ -3,11 +3,11 @@ search for pattern in all files in current directory:
 grep div *.html
 ```
 
-`-c` counts matches in all files in current directory
-`-i` case insensitive
-`-v` every line that doesnt match (inverted)
-`-x` search for line
-`-w word` match the whole word (not part)
+- `-c` counts matches in all files in current directory
+- `-i` case insensitive
+- `-v` every line that doesnt match (inverted)
+- `-x` search for line
+- `-w word` match the whole word (not part)
 
 use regexp for matches:
 ```bash
@@ -18,8 +18,9 @@ show extra 3 lines before the match:
 ```bash
 grep -w -B 3 iv *.html
 ```
-`-A` 3 lines after
-`-C` 3 lines before and 3 lines after
+
+- `-A` 3 lines after
+- `-C` 3 lines before and 3 lines after
 
 show exact pattern 404:
 ```bash

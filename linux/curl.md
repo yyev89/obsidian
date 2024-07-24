@@ -3,10 +3,10 @@ get the site from a link to terminal:
 curl https://example.com
 ```
 
-`-I` show only header information
-`-L` follow redirect
-`-v` verbose output
-`-k` skip SSL or bad self-signed certificate
+- `-I` show only header information
+- `-L` follow redirect
+- `-v` verbose output
+- `-k` skip SSL or bad self-signed certificate
 
 get output to a file:
 ```bash

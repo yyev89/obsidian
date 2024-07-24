@@ -8,9 +8,9 @@ display memory in bytes:
 free -b
 ```
 
-`-k` kilobytes
-`-m` megabytes
-`-g` gigabytes
+- `-k` kilobytes
+- `-m` megabytes
+- `-g` gigabytes
 
 display memory in human-readable units:
 ```bash

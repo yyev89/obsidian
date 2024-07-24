@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "03270767f19b51d7",
+        "id": "8420a8850d4a6f21",
         "type": "tabs",
         "children": [
           {
-            "id": "48212140071c21fa",
+            "id": "565612f239a027d7",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "general/vim.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/vim.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/vim.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "general/vim.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,34 +139,34 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "48212140071c21fa",
+  "active": "565612f239a027d7",
   "lastOpenFiles": [
     "db/sqlite config.md",
-    "general/vim.md",
-    "general/git.md",
-    "linux/ansible.md",
-    "general/docker.md",
+    "db/postgres commands.md",
     "general/AI request sample.md",
-    "general/watch later.md",
-    "linux/jq.md",
-    "linux/tr.md",
-    "linux/uptime.md",
+    "general/docker.md",
+    "linux/xargs.md",
     "linux/w.md",
-    "linux/find.md",
-    "linux/free.md",
+    "linux/uptime.md",
+    "linux/tr.md",
     "linux/top.md",
+    "linux/shell.md",
+    "linux/sed.md",
     "linux/ps.md",
+    "linux/lsof.md",
+    "linux/jq.md",
+    "linux/hardware.md",
+    "linux/grep.md",
+    "linux/globs.md",
+    "linux/free.md",
+    "linux/find.md",
+    "linux/dig.md",
     "linux/diff.md",
+    "linux/df, du.md",
+    "linux/Debian init.md",
     "linux/cut.md",
     "linux/curl.md",
-    "linux/dig.md",
-    "linux/df, du.md",
-    "linux/awk.md",
-    "README.md",
-    "db/sql functions.md",
-    "python/list comprehension.md",
-    "linux/grep.md",
-    "linux/xargs.md",
+    "linux/ansible.md",
     "python",
     "db",
     "linux",

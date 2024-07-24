@@ -3,12 +3,12 @@ replace all occurances of 'sample' to 'are' from file in stdout:
 sed 's/sample/are/g' poem.txt
 ```
 
-`'p'` print script
-`'d'` delete script
-`'i'` insert data
-`-n` print just the modified output
-`-i` edit in place
-`-e` indicates that the following block should be a sed script (used only if more than 1 script is needed)
+- `'p'` print script
+- `'d'` delete script
+- `'i'` insert data
+- `-n` print just the modified output
+- `-i` edit in place
+- `-e` indicates that the following block should be a sed script (used only if more than 1 script is needed)
 
 print second line twice(unprocessed and processed line):
 ```bash
