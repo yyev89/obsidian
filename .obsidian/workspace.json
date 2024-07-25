@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "python/linear search.md",
+                "file": "linux/ansible.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "python/linear search.md",
+                "file": "linux/ansible.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "python/linear search.md",
+                "file": "linux/ansible.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "python/linear search.md"
+                "file": "linux/ansible.md"
               }
             }
           }
@@ -149,9 +149,10 @@
   },
   "active": "565612f239a027d7",
   "lastOpenFiles": [
-    "README.md",
-    "python/linear search.md",
+    "general/vim.md",
     "linux/ansible.md",
+    "python/linear search.md",
+    "README.md",
     "general/docker.md",
     "linux/grep.md",
     "db/sqlite config.md",
@@ -174,7 +175,6 @@
     "linux/dig.md",
     "linux/diff.md",
     "linux/df, du.md",
-    "linux/Debian init.md",
     "python",
     "db",
     "linux",
