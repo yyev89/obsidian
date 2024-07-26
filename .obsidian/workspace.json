@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "4273c5279b1abead",
+        "id": "ee31bac3289c65a0",
         "type": "tabs",
         "children": [
           {
-            "id": "5aeabf4da5fdd6ff",
+            "id": "be02954329dcc55d",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -81,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -98,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/docker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -120,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "general/docker.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -143,17 +139,17 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "04bf2625e2b86cda",
+  "active": "be02954329dcc55d",
   "lastOpenFiles": [
+    "general/docker.md",
+    "general/AI request sample.md",
     "linux/ansible.md",
     "general/vim.md",
     "python/linear search.md",
     "README.md",
-    "general/docker.md",
     "linux/grep.md",
     "db/sqlite config.md",
     "db/postgres commands.md",
-    "general/AI request sample.md",
     "linux/xargs.md",
     "linux/w.md",
     "linux/uptime.md",

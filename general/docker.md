@@ -70,7 +70,7 @@ build an image with tag in current dir:
 docker build -t api-golang:1 .
 ```
 
-**General Principles for Dockerfiles:** 
+**General Principles for Dockerfiles (by Cid Palas):** 
 _Make it work, make it secure, make it fast_
 
 -  Pin specific versions 🔒👁️  
@@ -97,6 +97,6 @@ _Make it work, make it secure, make it fast_
 -  Leverage multi-stage builds ​🔒🚗
 
 Agenda:
-- 🔒Secutity
+- 🔒Security
 - 🚗 Built speed
 - 👁️ Clarity
