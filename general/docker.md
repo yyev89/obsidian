@@ -64,3 +64,39 @@ create a continer and mount a directory from host filesystem into the container 
 ```bash
 docker run -it --rm -v ${PWD}/my-data:/my-data ubuntu:22.04
 ```
+
+build an image with tag in current dir:
+```bash
+docker build -t api-golang:1 .
+```
+
+**General Principles for Dockerfiles:** 
+_Make it work, make it secure, make it fast_
+
+-  Pin specific versions 🔒👁️  
+-  Base images (either major+minor OR SHA256 hash)  🚗👁️
+-  System Dependencies  🔒👁️ 
+-  Application Dependencies  🔒👁️
+-  Use small + secure base images  🔒
+-  Protect the layer cache  🚗
+-  Order commands by frequency of change  🚗
+-  COPY dependency requirements file → install deps → copy remaining source code  🚗 
+-  Use cache mounts  🚗
+-  Use COPY --link  🚗
+-  Combine steps that are always linked (use heredocs to improve tidiness) 🚗👁️
+-  Be explicit  🔒👁️
+-  Set working directory with WORKDIR  🔒👁️
+-  Indicate standard port with EXPOSE  👁️
+-  Set default environment variables with ENV  🔒👁️
+-  Avoid unnecessary files  🔒🚗
+-  Use .dockerignore  🔒🚗
+-  COPY specific files  🔒🚗
+-  Use non-root USER  🔒
+-  Install only production dependencies  🔒
+-  Avoid leaking sensitive information  🔒
+-  Leverage multi-stage builds ​🔒🚗
+
+Agenda:
+- 🔒Secutity
+- 🚗 Built speed
+- 👁️ Clarity

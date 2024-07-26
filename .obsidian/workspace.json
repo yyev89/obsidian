@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "8420a8850d4a6f21",
+        "id": "4273c5279b1abead",
         "type": "tabs",
         "children": [
           {
-            "id": "565612f239a027d7",
+            "id": "5aeabf4da5fdd6ff",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "linux/ansible.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/ansible.md",
+                "file": "general/docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +98,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/ansible.md",
+                "file": "general/docker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +121,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/ansible.md"
+                "file": "general/docker.md"
               }
             }
           }
@@ -147,10 +143,10 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "565612f239a027d7",
+  "active": "04bf2625e2b86cda",
   "lastOpenFiles": [
-    "general/vim.md",
     "linux/ansible.md",
+    "general/vim.md",
     "python/linear search.md",
     "README.md",
     "general/docker.md",
