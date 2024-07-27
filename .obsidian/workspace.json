@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "20ab7a4e0264932d",
+        "id": "f0586461ab3e775d",
         "type": "tabs",
         "children": [
           {
-            "id": "46c31ab99a0c568e",
+            "id": "fb217676942cec23",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "python/binary search.md",
-                "mode": "preview",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "python/binary search.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "python/binary search.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "python/binary search.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,13 +139,13 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "46c31ab99a0c568e",
+  "active": "04bf2625e2b86cda",
   "lastOpenFiles": [
-    "python/linear search.md",
+    "linux/ansible.md",
     "python/binary search.md",
+    "python/linear search.md",
     "general/docker.md",
     "general/AI request sample.md",
-    "linux/ansible.md",
     "general/vim.md",
     "README.md",
     "linux/grep.md",
