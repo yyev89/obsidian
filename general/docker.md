@@ -100,3 +100,31 @@ Agenda:
 - 🔒Security
 - 🚗 Built speed
 - 👁️ Clarity
+
+### Registries
+
+build simple blank image:
+```bash
+echo "FROM scratch" > Dockerfile
+docker build --tag my-scratch-image .
+rm Dockerfile
+```
+
+login to dockerhub:
+```bash
+docker login
+```
+
+retag image associated with your repo:
+```bash
+docker tag my-scratch-image yyarynich/my-scratch-image:abc-123
+# latest by default:
+docker tag my-scratch-image yyarynich/my-scratch-image
+```
+
+push to dockerhub:
+```bash
+docker push yyarynich/my-scratch-image:abc-123
+# latest by default:
+docker push yyarynich/my-scratch-image
+```
