@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/docker.md",
+                "file": "linux/journalctl.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/docker.md",
+                "file": "linux/journalctl.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/docker.md",
+                "file": "linux/journalctl.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/docker.md"
+                "file": "linux/journalctl.md"
               }
             }
           }
@@ -149,32 +149,32 @@
   },
   "active": "fb217676942cec23",
   "lastOpenFiles": [
+    "linux/Untitled.md",
+    "linux/journalctl.md",
+    "linux/systemctl.md",
+    "linux/grep.md",
+    "linux/top.md",
+    "general/docker.md",
     "linux/find.md",
     "linux/Debian init.md",
     "linux/free.md",
     "linux/ansible.md",
     "python/binary search.md",
     "python/linear search.md",
-    "general/docker.md",
     "general/AI request sample.md",
     "general/vim.md",
     "README.md",
-    "linux/grep.md",
     "db/sqlite config.md",
     "db/postgres commands.md",
     "linux/xargs.md",
     "linux/w.md",
     "linux/uptime.md",
     "linux/tr.md",
-    "linux/top.md",
     "linux/shell.md",
     "linux/sed.md",
     "linux/ps.md",
     "linux/lsof.md",
     "linux/jq.md",
-    "linux/hardware.md",
-    "linux/globs.md",
-    "linux/dig.md",
     "python",
     "db",
     "linux",
