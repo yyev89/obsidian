@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "linux/journalctl.md",
+                "file": "general/docker.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "linux/journalctl.md",
+                "file": "general/docker.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "linux/journalctl.md",
+                "file": "general/docker.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "linux/journalctl.md"
+                "file": "general/docker.md"
               }
             }
           }
@@ -149,7 +149,8 @@
   },
   "active": "fb217676942cec23",
   "lastOpenFiles": [
-    "linux/Untitled.md",
+    "linux/ansible.md",
+    "linux/ip.md",
     "linux/journalctl.md",
     "linux/systemctl.md",
     "linux/grep.md",
@@ -158,7 +159,6 @@
     "linux/find.md",
     "linux/Debian init.md",
     "linux/free.md",
-    "linux/ansible.md",
     "python/binary search.md",
     "python/linear search.md",
     "general/AI request sample.md",

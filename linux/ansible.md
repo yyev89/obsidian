@@ -140,3 +140,47 @@ run playbook with tags provided:
 ```bash
 ansible-playbook --tags db --ask-become-pass site.yml
 ```
+
+play to copy files to target nodes:
+```yaml
+  - name: copy html file for site
+    tags: apache,ubuntu
+    ansible.builtin.copy:
+      src: default_site.html
+      dest: /var/www/html/index.html
+      owner: root
+      group: root
+      mode: 0644
+```
+
+play to check for specific service running:
+```yaml
+  - name: ensure apache is running (ubuntu)
+    tags: apache,ubuntu
+    ansible.builtin.service:
+      name: apache2
+      state: started
+    when: ansible_distribution == "Ubuntu"
+```
+
+play to change one line in config file:
+```yaml
+  - name: change email address for admin
+    tags: apache,fedora
+    ansible.builtin.lineinfile:
+      path: /etc/httpd/conf/httpd.conf
+      regexp: '^ServerAdmin'
+      line: ServerAdmin someone@example.com
+    when: ansible_distribution == "Fedora"
+    register: httpd
+```
+
+play to restart a service after previous changes:
+```yaml
+  - name: restart httpd (fedora)
+    tags: apache,fedora
+    ansible.builtin.service:
+      name: httpd
+      state: restarted
+    when: httpd.changed
+```
