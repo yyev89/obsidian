@@ -128,3 +128,68 @@ docker push yyarynich/my-scratch-image:abc-123
 # latest by default:
 docker push yyarynich/my-scratch-image
 ```
+
+### Running and docker-compose
+
+run container in detatched mode:
+```bash
+docker run -d ubuntu sleep 99
+```
+
+overwrite entrypoint from Dockerfile:
+```bash
+docker run --entrypoint echo ubuntu hello
+```
+
+set environment variables at runtime:
+```bash
+docker run --env MY_ENV=hello ubuntu printenv
+```
+
+change PID from docker-init process:
+```bash
+docker run --init ubuntu ps
+```
+
+run with interactive shell (tty):
+```bash
+docker run -it ubuntu
+```
+
+specify name for the container:
+```bash
+docker run -d --name my-container ubuntu sleep 99
+```
+
+attach container to a specific network:
+```bash
+docker network ls
+docker network create my-network
+docker run -d --network|--net my-network ubuntu sleep 99
+```
+
+run with different architecture:
+```bash
+docker run --platform linux/arm64/v8 ubuntu dpkg --print-architecture
+```
+
+set restarting options (always, unless-stopped, never):
+```bash
+docker run --restart unless-stopped ubuntu
+```
+
+build, run, stop and remove containers with docker-compose.yml:
+```bash
+# Build:
+docker compose build
+# Build and run:
+docker compose up --build
+# Run attached:
+docker compose up
+# Run not attached:
+docker compose up -d
+# Stop:
+docker compose stop
+# Remove everything (+volumes, +networks etc):
+docker compose down
+```
