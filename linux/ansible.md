@@ -184,3 +184,60 @@ play to restart a service after previous changes:
       state: restarted
     when: httpd.changed
 ```
+
+play to add a new user:
+```yaml
+  - name: create user
+    tags: always
+    ansible.builtin.user:
+      name: simone
+      groups: root
+```
+
+edit /etc/sudoers.d/simone file on target node:
+```
+simone ALL=(ALL) NOPASSWD: ALL
+```
+
+set correct permissions:
+```bash
+chmod 440 simone
+```
+
+add ansible.pub key from working station to simone user on working node:
+```bash
+sudo su - simone
+mkdir ~/.ssh
+chmod 700 ~/.ssh
+vim ~/.ssh/authorized_keys
+chmod 600 ~/.ssh/authorized_keys
+```
+
+add line to ansible.cfg:
+```
+remote_user = simone
+```
+
+plays for configuring simone user automatically:
+```yaml
+  - name: add sudoers file for simone
+    tags: always
+    ansible.builtin.copy:
+      src: sudoer_simone
+      dest: /etc/sudoers.d/simone
+      owner: root
+      group: root
+      mode: 0400
+
+  - name: add ssh key for simone user
+    tags: always
+    ansible.builtin.authorized_key:
+      user: simone
+      key: "abc123"
+```
+
+sudoer_simone file:
+```
+# Managed by Ansible
+simone ALL=(ALL) NOPASSWD: ALL
+```

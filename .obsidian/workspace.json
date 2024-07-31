@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "f0586461ab3e775d",
+        "id": "4e86dcb7b476812b",
         "type": "tabs",
         "children": [
           {
-            "id": "fb217676942cec23",
+            "id": "75b298a8c3e4d40d",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/docker.md",
+                "file": "linux/ansible.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/docker.md",
+                "file": "linux/ansible.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/docker.md",
+                "file": "linux/ansible.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/docker.md"
+                "file": "linux/ansible.md"
               }
             }
           }
@@ -147,15 +147,15 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "fb217676942cec23",
+  "active": "75b298a8c3e4d40d",
   "lastOpenFiles": [
+    "general/docker.md",
     "linux/ansible.md",
     "linux/ip.md",
     "linux/journalctl.md",
     "linux/systemctl.md",
     "linux/grep.md",
     "linux/top.md",
-    "general/docker.md",
     "linux/find.md",
     "linux/Debian init.md",
     "linux/free.md",
