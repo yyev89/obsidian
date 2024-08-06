@@ -4,16 +4,16 @@
     "type": "split",
     "children": [
       {
-        "id": "4e86dcb7b476812b",
+        "id": "b4a01336b4053be9",
         "type": "tabs",
         "children": [
           {
-            "id": "75b298a8c3e4d40d",
+            "id": "fcf01600429c2ec3",
             "type": "leaf",
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/docker.md",
+                "file": "general/git.md",
                 "mode": "source",
                 "source": false
               }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/docker.md",
+                "file": "general/git.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/docker.md",
+                "file": "general/git.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/docker.md"
+                "file": "general/git.md"
               }
             }
           }
@@ -147,7 +147,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "75b298a8c3e4d40d",
+  "active": "fcf01600429c2ec3",
   "lastOpenFiles": [
     "linux/ansible.md",
     "general/docker.md",

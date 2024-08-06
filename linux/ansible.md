@@ -241,3 +241,74 @@ sudoer_simone file:
 # Managed by Ansible
 simone ALL=(ALL) NOPASSWD: ALL
 ```
+
+install or remove role from ansible galaxy:
+```bash
+ansible-galaxy role install|remove geerlingguy.apache
+```
+
+list installed roles:
+```bash
+ansible-galaxy list
+```
+
+use role in site.yml:
+```yaml
+- hosts: apache
+  become: true
+  roles:
+    - geerlingguy.apache
+```
+
+create new secret vault:
+```bash
+ansible-vault create secret.txt
+```
+
+encrypt or decrypt an existing file:
+```bash
+ansible-vault encrypt|decrypt secret.txt
+```
+
+view encrypted file without decryption:
+```bash
+ansible-vault view secret.txt
+```
+
+edit encrypted file:
+```bash
+ansible-vault edit secret.txt
+```
+
+save vault password in a file and use it:
+```bash
+echo "test123" > ~/.vault_key
+chmod 600 ~/.vault_key
+ansible-vault encrypt secret.txt --vault-password-file ~/.vault_key
+```
+
+local.yml playbook:
+```yaml
+---
+- hosts: localhost
+  connection: local
+  become: true
+  tasks:
+
+  - name: update all packages
+    ansible.builtin.apt:
+      upgrade: dist
+      update_cache: yes
+    when: ansible_distribution == "Ubuntu"
+
+  - name: install apache2
+    ansible.builtin.apt:
+      name: apache2
+      state: latest
+    when: ansible_distribution == "Ubuntu"
+```
+
+on target machine:
+```bash
+ansible-pull --ask-become-pass -U https://github.com/yyev89/ansible_pull.git
+```
