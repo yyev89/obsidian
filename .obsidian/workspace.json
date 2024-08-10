@@ -13,8 +13,8 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "general/terraform.md",
-                "mode": "preview",
+                "file": "linux/ansible.md",
+                "mode": "source",
                 "source": false
               }
             }
@@ -85,7 +85,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/terraform.md",
+                "file": "linux/ansible.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +102,7 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/terraform.md",
+                "file": "linux/ansible.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -125,7 +125,7 @@
             "state": {
               "type": "outline",
               "state": {
-                "file": "general/terraform.md"
+                "file": "linux/ansible.md"
               }
             }
           }
@@ -149,8 +149,9 @@
   },
   "active": "fcf01600429c2ec3",
   "lastOpenFiles": [
-    "linux/shell.md",
     "general/terraform.md",
+    "general/watch later.md",
+    "linux/shell.md",
     "general/docker.md",
     "general/git.md",
     "linux/ansible.md",
@@ -174,7 +175,6 @@
     "linux/uptime.md",
     "linux/tr.md",
     "linux/sed.md",
-    "linux/ps.md",
     "python",
     "db",
     "linux",
