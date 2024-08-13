@@ -4,11 +4,11 @@
     "type": "split",
     "children": [
       {
-        "id": "53dcf6df1ffe59db",
+        "id": "89934c93dc919cf1",
         "type": "tabs",
         "children": [
           {
-            "id": "2849472df46ca435",
+            "id": "9d140d5cfca3f537",
             "type": "leaf",
             "state": {
               "type": "empty",
@@ -139,7 +139,7 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "2849472df46ca435",
+  "active": "9d140d5cfca3f537",
   "lastOpenFiles": [
     "general/terraform.md",
     "linux/rsync.md",

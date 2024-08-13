@@ -120,6 +120,7 @@ Pros:
 - easy to get started
 - convinient terraform.workspace expression
 - minimizes code duplication
+
 Cons:
 - prone to human error
 - state stored within same backend
@@ -132,6 +133,7 @@ Pros:
 - improved security
 - decreased potential for human error
 - codebase fully represents deployed state
+
 Cons:
 - multiple `terraform apply` required to provision environments
 - more code duplication, but can be minimized with modules
