@@ -96,3 +96,40 @@ variable "db_pass" {
 }
 ```
 
+module sources examples:
+```hcl
+# HTTPS
+module "example" {
+    source = "github.com/hashicorp/example?ref=v1.2.0"
+}
+# SSH
+module "example" {
+    source = "git@github.com:hashicorp/example.git"
+}
+# GENERIC
+module "example" {
+    source = "git::ssh://username@example.com/storage.git"
+}
+```
+
+### Two main approaches:
+
+**Workspaces** - multiple named sections within a single backend
+Pros:
+- easy to get started
+- convinient terraform.workspace expression
+- minimizes code duplication
+Cons:
+- prone to human error
+- state stored within same backend
+- codebase doesn't unambiguously show deployment configurations
+
+**File structure** - directory layout provides separation, modules provide reuse
+Pros:
+- isolation of backends
+- improved security
+- decreased potential for human error
+- codebase fully represents deployed state
+Cons:
+- multiple `terraform apply` required to provision environments
+- more code duplication, but can be minimized with modules
