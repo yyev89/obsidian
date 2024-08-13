@@ -115,6 +115,7 @@ module "example" {
 ### Two main approaches:
 
 **Workspaces** - multiple named sections within a single backend
+
 Pros:
 - easy to get started
 - convinient terraform.workspace expression
@@ -125,6 +126,7 @@ Cons:
 - codebase doesn't unambiguously show deployment configurations
 
 **File structure** - directory layout provides separation, modules provide reuse
+
 Pros:
 - isolation of backends
 - improved security

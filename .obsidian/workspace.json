@@ -4,19 +4,15 @@
     "type": "split",
     "children": [
       {
-        "id": "b59800007d46477f",
+        "id": "53dcf6df1ffe59db",
         "type": "tabs",
         "children": [
           {
-            "id": "949254fd19b36b6c",
+            "id": "2849472df46ca435",
             "type": "leaf",
             "state": {
-              "type": "markdown",
-              "state": {
-                "file": "general/terraform.md",
-                "mode": "source",
-                "source": false
-              }
+              "type": "empty",
+              "state": {}
             }
           }
         ]
@@ -85,7 +81,6 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "general/terraform.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -102,7 +97,6 @@
             "state": {
               "type": "outgoing-link",
               "state": {
-                "file": "general/terraform.md",
                 "linksCollapsed": false,
                 "unlinkedCollapsed": true
               }
@@ -124,9 +118,7 @@
             "type": "leaf",
             "state": {
               "type": "outline",
-              "state": {
-                "file": "general/terraform.md"
-              }
+              "state": {}
             }
           }
         ],
@@ -147,8 +139,9 @@
       "command-palette:Open command palette": false
     }
   },
-  "active": "949254fd19b36b6c",
+  "active": "2849472df46ca435",
   "lastOpenFiles": [
+    "general/terraform.md",
     "linux/rsync.md",
     "linux/journalctl.md",
     "linux/jq.md",
@@ -156,7 +149,6 @@
     "linux/ps.md",
     "linux/systemctl.md",
     "linux/ansible.md",
-    "general/terraform.md",
     "general/watch later.md",
     "linux/shell.md",
     "general/docker.md",
