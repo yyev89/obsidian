@@ -15,6 +15,11 @@ git reset --soft HEAD~1
 `--mixed` keep changes in files and unstage status
 `--hard` discard all changes, also in files
 
+add only part of changed file interectively:
+```bash
+git add -p index.html
+```
+
 update latest commit message:
 ```bash
 git commit --amend -m "correct"
