@@ -56,6 +56,18 @@ terraform plan
 build or change infra:
 ```bash
 terraform apply
+# Don't ask for approval:
+terraform apply -auto-approve
+```
+
+redeploy specific resource without destroying everything:
+```bash
+terraform apply -replace <name>
+```
+
+refresh terraform state, for example to get output variables added before:
+```bash
+terraform apply -refresh-only
 ```
 
 destroy managed infra:
@@ -63,6 +75,14 @@ destroy managed infra:
 terraform destroy
 ```
 
+list created resources:
+```bash
+terraform state list
+# Detailed info about certain resource:
+terraform state show <name>
+# Detailed info about everything:
+terraform show
+```
 ### Variables
 
 - input variables: `var.<name>`
@@ -112,6 +132,47 @@ module "example" {
 }
 ```
 
+define varibles in `variables.tf` file (where description, type, default values are stored):
+```hcl
+variable "host_os" {
+    type    = string
+    default = "linux"
+}
+```
+
+actual values for variables are stored in `terraform.tfvars` file:
+```hcl
+host_os = "macos"
+```
+
+to access a variable:
+```hcl
+${var.host_os}
+```
+
+check some variables or other stuff in console:
+```bash
+terraform console
+# Get variable:
+var.host_os
+```
+
+using conditional statement:
+```hcl
+var.host_os == "windows" ? ["Powershell", "-Command"] : ["bash", "-c"]
+```
+
+set output variables in `outputs.tf` to get info:
+```hcl
+output "dev_ip" {
+    value = aws_instance.dev_node.public_ip
+}
+```
+
+check outputs after provisioning:
+```bash
+terraform output
+```
 ### Two main approaches:
 
 **Workspaces** - multiple named sections within a single backend
