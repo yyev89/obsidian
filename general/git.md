@@ -147,3 +147,43 @@ git log main..feature/uploader
 # Remote:
 git log origin/main..main
 ```
+
+### Pro tips
+
+interactive rebase, choose point in time, then change actions (reword, squash etc), then change commit messages or something else:
+```bash
+git rebase -i HEAD~3
+```
+
+cherry-pick a commit from other branch:
+```bash
+git cherry-pick <hash>
+```
+
+search in log for specific date:
+```bash
+git log --after="2021-7-1"
+# Define range:
+git log --after="2021-7-1" --after="2021-7-5"
+```
+
+search by grepping the message text (regexp can be used):
+```bash
+git log --grep="refactor"
+```
+
+search by author:
+```bash
+git log --author="Heisenberg"
+```
+
+lookup changes for a specific file:
+```bash
+git log -- README.md
+```
+
+see commits in one branch, but NOT in another one:
+```bash
+# In main, but not in feature/login:
+git log feature/login..main
+```
