@@ -28,6 +28,10 @@
 
 `Ctrl` + `ww` move between splits
 
+`gx` open link under the coursor in the browser
+
+`gf` open file under the coursor (by file path)
+
 ### moves horizontal:
 
 `0` move cursor to start of line
@@ -146,7 +150,12 @@
 
 `<<` indent whole line to the right
 
+`J` join two lines with a space
+
+`gJ` join two lines without a space
+
 ### text:
+
 `i` "inside"
 
 `a` "around"
