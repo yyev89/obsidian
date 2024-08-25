@@ -49,6 +49,10 @@ kubectl apply -n <namespace> -f nginx-minimal.yaml
 kubectl port-forward -n <namespace> nginx-minimal 8080:80
 ```
 
+view logs of the pod:
+```bash
+kubectl logs <name>
+```
 ### ReplicaSet
 
 **labels** are the link between RS and Pods
@@ -75,4 +79,18 @@ kubectl rollout restart deployment <name>
 undo the rollout to the previous state of replicaset:
 ```bash
 kubectl rollout undo deployment <name>
+```
+
+### Service
+
+- serves as an internal load balancer across replicas
+- uses pod labels to determine which pods to serve
+- types:
+1. **ClusterIP**: internal to cluster
+2. **NodePort**: listens on each node in cluster
+3. **LoadBalancer**: provisions external load balancer
+
+list services in the cluster:
+```bash
+kubectl get services|svc
 ```
