@@ -192,6 +192,30 @@
 
 `:norm Ivar <enter>` put "var" before selected lines
 
+### Terminal
+
+open built-in terminal:
+```
+:terminal | :term
+```
+
+switch cursor between windows:
+`<Ctrl> + ww`
+
+enter Normal mode in the terminal to navigate, copy etc:
+`<Ctrl> + w` +  `N` (`i` to get back)
+
+open terminal below the editor:
+```
+:below term
+```
+
+open terminal to the right side:
+```
+:bel vert term
+```
+
+
 
 
 
