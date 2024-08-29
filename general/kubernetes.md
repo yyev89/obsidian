@@ -40,6 +40,8 @@ kubectl delete -f Namespace.yaml
 list all pods:
 ```bash
 kubectl get pods
+# With additional info:
+kubectl get pods -o wide
 ```
 
 apply pod configuration:
@@ -94,3 +96,16 @@ list services in the cluster:
 ```bash
 kubectl get services|svc
 ```
+
+### DaemonSet
+
+- runs a copy of the specified pod on all (or a specified subset of) nodes in the cluster except controllers
+- useful for apps such as: cluster storage daemon, log aggregation, node monitoring
+
+### StatefulSet
+
+similar to Deployment, except:
+- pods get sticky identity (pod-0, pod-1 etc)
+- each pod mounts separate volumes
+- rollout behaviour is ordered
+- enables configuring workloads that require state management (e.g. primary vs read-replica for a database)
