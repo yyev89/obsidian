@@ -1,8 +1,3 @@
-example of inventory file:
-```
-192.168.0.102 apache_package=apache2 php_package=libapache2-mod-php
-192.168.0.103 apache_package=httpd php_package=php
-```
 
 create ssh-key for ansible host machine and connect to  the target:
 ```bash
@@ -92,50 +87,6 @@ add groups for target servers in inventory file:
 192.168.0.103
 ```
 
-site.yml using targeting groups and tags:
-```yaml
----
-- hosts: all
-  become: true
-  pre_tasks:
-
-  - name: install updates for fedora
-    tags: always
-    ansible.builtin.dnf:
-      update_only: yes
-      update_cache: yes
-    when: ansible_distribution == "Fedora"
-    
-  - name: install updates for ubuntu
-    tags: always
-    ansible.builtin.apt:
-      upgrade: dist
-      update_cache: yes
-    when: ansible_distribution == "Ubuntu"
-
-- hosts: web_servers
-  become: true
-  tasks:
-
-  - name: install apache on web servers
-    tags: apache,ubuntu
-    ansible.builtin.apt:
-      name:
-        - apache2
-        - libapache2-mod-php
-    when: ansible_distribution == "Ubuntu"
-
-- hosts: db_servers
-  tags: db,fedora
-  become: true
-  tasks:
-    - name: install mariadb package on db servers
-      ansible.builtin.dnf:
-        name: mariadb
-        state: latest
-      when: ansible_distribution == "Fedora"
-```
-
 run playbook with tags provided:
 ```bash
 ansible-playbook --tags db --ask-become-pass site.yml
@@ -185,62 +136,6 @@ play to restart a service after previous changes:
     when: httpd.changed
 ```
 
-play to add a new user:
-```yaml
-  - name: create user
-    tags: always
-    ansible.builtin.user:
-      name: simone
-      groups: root
-```
-
-edit /etc/sudoers.d/simone file on target node:
-```
-simone ALL=(ALL) NOPASSWD: ALL
-```
-
-set correct permissions:
-```bash
-chmod 440 simone
-```
-
-add ansible.pub key from working station to simone user on working node:
-```bash
-sudo su - simone
-mkdir ~/.ssh
-chmod 700 ~/.ssh
-vim ~/.ssh/authorized_keys
-chmod 600 ~/.ssh/authorized_keys
-```
-
-add line to ansible.cfg:
-```
-remote_user = simone
-```
-
-plays for configuring simone user automatically:
-```yaml
-  - name: add sudoers file for simone
-    tags: always
-    ansible.builtin.copy:
-      src: sudoer_simone
-      dest: /etc/sudoers.d/simone
-      owner: root
-      group: root
-      mode: 0400
-
-  - name: add ssh key for simone user
-    tags: always
-    ansible.builtin.authorized_key:
-      user: simone
-      key: "abc123"
-```
-
-sudoer_simone file:
-```
-# Managed by Ansible
-simone ALL=(ALL) NOPASSWD: ALL
-```
 
 install or remove role from ansible galaxy:
 ```bash
