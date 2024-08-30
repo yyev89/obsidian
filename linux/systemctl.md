@@ -16,6 +16,8 @@ systemctl start|stop|restart|reload|status unit
 enable or disable unit to start on bootup:
 ```bash
 systemctl enable|disable unit
+# Enable and immideately start:
+systemctl enable --now unit
 ```
 
 reload systemd, scan for new or chaged units:

@@ -16,6 +16,8 @@ journalctl --lines N --follow
 show all messages by a specific unit:
 ```bash
 journalctl -u unit
+# In real time:
+journalctl -fu unit
 ```
 
 show logs for a given unit sisnce the last time it started:
