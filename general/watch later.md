@@ -1,6 +1,6 @@
 - [ ] quic protocol
 - [ ] opentelemetry
-- [ ] sar, tcdump, ss/netstat, iotop, vmstat,  pmap, mtr, iostat, strace
+- [ ] sar, tcdump, iotop, vmstat,  pmap, iostat, strace, mtr, free, ps, lsof, iproute2
 - [ ] GitLab
 - [ ] Grafana stack
 - [ ] Kibana
