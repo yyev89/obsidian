@@ -207,3 +207,13 @@ on target machine:
 ```bash
 ansible-pull --ask-become-pass -U https://github.com/yyev89/ansible_pull.git
 ```
+
+check groups in the inventory:
+```bash
+ansible-inventory --graph
+```
+
+show documentation for the service module:
+```bash
+ansible-doc service
+```
