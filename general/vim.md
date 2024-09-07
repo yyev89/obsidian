@@ -128,6 +128,8 @@
 
 `y` copy
 
+`Y` copy from cursor to the end of line
+
 `yy` copy the whole line
 
 `p` paste after cursor (down)
