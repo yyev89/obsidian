@@ -70,65 +70,6 @@ build an image with tag in current dir:
 docker build -t api-golang:1 .
 ```
 
-**General Principles for Dockerfiles (by Cid Palas):** 
-_Make it work, make it secure, make it fast_
-
--  Pin specific versions 🔒👁️  
--  Base images (either major+minor OR SHA256 hash)  🚗👁️
--  System Dependencies  🔒👁️ 
--  Application Dependencies  🔒👁️
--  Use small + secure base images  🔒
--  Protect the layer cache  🚗
--  Order commands by frequency of change  🚗
--  COPY dependency requirements file → install deps → copy remaining source code  🚗 
--  Use cache mounts  🚗
--  Use COPY --link  🚗
--  Combine steps that are always linked (use heredocs to improve tidiness) 🚗👁️
--  Be explicit  🔒👁️
--  Set working directory with WORKDIR  🔒👁️
--  Indicate standard port with EXPOSE  👁️
--  Set default environment variables with ENV  🔒👁️
--  Avoid unnecessary files  🔒🚗
--  Use .dockerignore  🔒🚗
--  COPY specific files  🔒🚗
--  Use non-root USER  🔒
--  Install only production dependencies  🔒
--  Avoid leaking sensitive information  🔒
--  Leverage multi-stage builds ​🔒🚗
-
-Agenda:
-- 🔒Security
-- 🚗 Built speed
-- 👁️ Clarity
-
-### Registries
-
-build simple blank image:
-```bash
-echo "FROM scratch" > Dockerfile
-docker build --tag my-scratch-image .
-rm Dockerfile
-```
-
-login to dockerhub:
-```bash
-docker login
-```
-
-retag image associated with your repo:
-```bash
-docker tag my-scratch-image yyarynich/my-scratch-image:abc-123
-# latest by default:
-docker tag my-scratch-image yyarynich/my-scratch-image
-```
-
-push to dockerhub:
-```bash
-docker push yyarynich/my-scratch-image:abc-123
-# latest by default:
-docker push yyarynich/my-scratch-image
-```
-
 ### Running and docker-compose
 
 run container in detatched mode:
@@ -193,36 +134,3 @@ docker compose stop
 # Remove everything (+volumes, +networks etc):
 docker compose down
 ```
-
-### Docker security tips:
-
-**Image Security**
-
-"What vulnerabilities exist in your image that an attacker could exploit?"
-
-- Keep attack surface area as small as possible:
-    - Use minimal base images (multi-stage builds are a key enabler)
-    - Don't install things you don’t need (don’t install dev deps)
-- Scan images!
-- Use users with minimal permissions
-- Keep sensitive info out of images
-- Sign and verify images
-- Use fixed image tags:
-    - Either pin major.minor (allows patch fixes to be integrated)
-    - Pin specific image hash
-
----
-
-**Runtime Security**
-
-"If an attacker successfully compromises a container, what can they do? How difficult will it be to move laterally?"
-
-- Docker daemon (dockerd):
-    - Start with --userns-remap option (https://docs.docker.com/engine/security/userns-remap/)
-- Individual containers:
-    - Use read only filesystem if writes are not needed
-    - --cap-drop=all, then --cap-add anything you need
-    - Limit CPU and memory --cpus="0.5" --memory 1024m
-    - Use --security-opt:
-        - seccomp profiles (https://docs.docker.com/engine/security/seccomp/)
-        - apparmor profiles (https://docs.docker.com/engine/security/apparmor/)
