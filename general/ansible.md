@@ -217,3 +217,10 @@ show documentation for the service module:
 ```bash
 ansible-doc service
 ```
+
+validate playbooks:
+```bash
+ansible-playbook --syntax-check webservers-tls.yml
+ansible-lint webservers-tls.yml
+yamllint webservers-tls.yml
+```
