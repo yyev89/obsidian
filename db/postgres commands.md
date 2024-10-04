@@ -66,3 +66,8 @@ show privileges for table:
 ```sql
 \dp table
 ```
+
+display empty strings as "NULL":
+```bash
+\pset null NULL
+```
