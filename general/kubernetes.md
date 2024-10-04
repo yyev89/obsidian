@@ -35,6 +35,15 @@ kubectl delete namespace <name>
 kubectl delete -f Namespace.yaml
 ```
 
+list namespace limits:
+```bash
+kubectl describe ns default
+```
+
+list default hardware limits:
+```bash
+kubectl get limitrange limits -o yaml
+```
 ### Pod
 
 list all pods:
