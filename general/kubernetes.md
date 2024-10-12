@@ -51,6 +51,7 @@ list all pods:
 kubectl get pods
 # With additional info:
 kubectl get pods -o wide
+kubectl get pods -o yaml | yq
 ```
 
 apply pod configuration:
@@ -63,6 +64,20 @@ kubectl port-forward -n <namespace> nginx-minimal 8080:80
 view logs of the pod:
 ```bash
 kubectl logs <name>
+# For multicontainer pod:
+kubectl logs --container app
+```
+
+run a remote command for the first container in the pod:
+```bash
+kubectl exec hello-pod -- curl localhost:8080
+# Establish a sh session with the first container in a pod:
+kubectl exec -it hello-pod -- sh
+```
+
+change fields on running pod via default editor:
+```bash
+kubectl edit pod hello-pod
 ```
 ### ReplicaSet
 
