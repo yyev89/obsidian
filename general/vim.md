@@ -152,6 +152,8 @@
 
 `<<` indent whole line to the right
 
+`==` auto indent line
+
 `J` join two lines with a space
 
 `gJ` join two lines without a space
