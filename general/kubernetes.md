@@ -29,6 +29,11 @@ set default (active) namespace:
 kubens <name>
 ```
 
+configure kubeconfig to run all commands against one namespace:
+```bash
+kubectl config set-context --current --namespace <name>
+```
+
 delete namespace:
 ```bash
 kubectl delete namespace <name>
@@ -40,10 +45,6 @@ list namespace limits:
 kubectl describe ns default
 ```
 
-list default hardware limits:
-```bash
-kubectl get limitrange limits -o yaml
-```
 ### Pod
 
 list all pods:
@@ -97,9 +98,34 @@ list all deployments:
 kubectl get deployments|deploy
 ```
 
+imperatively scale deployment to 5 replicas:
+```bash
+kubectl scale deploy <name> --replicas 5
+```
+
 roll the pods in the deployment one by one:
 ```bash
 kubectl rollout restart deployment <name>
+```
+
+monitor the progress of rolling update:
+```bash
+kubectl rollout status deployment <name>
+```
+
+pause/resume the rollout:
+```bash
+kubectl rollout pause|resume deploy <name>
+```
+
+check the history of deployments:
+```bash
+kubectl rollout history deployment <name>
+```
+
+imperative revert to previous version of deployment:
+```bash
+kubectl rollout undo deploy <name> --to-revision=1
 ```
 
 undo the rollout to the previous state of replicaset:
@@ -121,6 +147,12 @@ list services in the cluster:
 kubectl get services|svc
 ```
 
+imperativelly create service for deployment:
+```bash
+kubectl expose deployment svc-test --type=LoadBalancer
+# Delete:
+kubectl delete svc svc-test
+```
 ### DaemonSet
 
 - runs a copy of the specified pod on all (or a specified subset of) nodes in the cluster except controllers

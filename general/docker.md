@@ -134,3 +134,27 @@ docker compose stop
 # Remove everything (+volumes, +networks etc):
 docker compose down
 ```
+
+delete all containers:
+```bash
+docker rm $(docker ps -aq) -f
+```
+
+delete all images:
+```bash
+docker rmi $(docker images -q)
+```
+
+`Ctrl+PQ`  detach from running container without killing it
+
+list all builders:
+```bash
+docker buildx ls
+# Choose one to use:
+docker buildx use <name>
+```
+
+build a container for multiple architectures:
+```bash
+docker buildx build --platform=linux/amd64,linux/arm64 -t yyarynich/ddd-book:ch8.1 --push .
+```
