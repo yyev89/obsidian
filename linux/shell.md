@@ -460,3 +460,26 @@ log() {
 
 log "hello world"
 ```
+
+### Tricks
+rerun the command with the last arguments used:
+```bash
+cd test
+# Will repeat:
+!cd
+```
+
+use the argument from last command in current one:
+```bash
+ls -la doc.txt
+# Refence the last (same as nvim doc.txt):
+nvim !$
+# Reference by position: !:0 (ls) !:1 (-la) !:2 (doc.txt)
+```
+
+replace command word from previous run (fix the typo for example):
+```bash
+yay -Qq | fuzzy --preview='yay -Qs {1}' | xargs -r yay -Qi
+# Change fuzzy to fzf:
+^fuzzy^fzf
+```
