@@ -21,6 +21,18 @@ run ping module on all ansible target hosts with key provided:
 ansible all --key-file ~/.ssh/ansible -i inventory -m ping
 ```
 
+create default commented-out config file:
+```bash
+ansible-config init --disabled > ansible.cfg
+```
+
+explore current configuration:
+```bash
+ansible-config list
+# Current values:
+ansible-config dump
+```
+
 ansible.cfg file:
 ```
 [defaults]
