@@ -165,3 +165,26 @@ similar to Deployment, except:
 - each pod mounts separate volumes
 - rollout behaviour is ordered
 - enables configuring workloads that require state management (e.g. primary vs read-replica for a database)
+
+### ConfigMaps, Secrets
+
+create a ConfigMap called testmap1 with two entries from literal command-line values:
+```bash
+kubectl create configmap testmap1 --from-literal shortname=AOS --from-literal longname="Agents of Shield"
+```
+
+create a ConfigMap from a file called `cmfile.txt`:
+```bash
+kubectl create cm testmap2 --from-file cmfile.txt
+```
+
+create a new Secret called `creds`:
+```bash
+kubectl create secret generic creds --from-literal user=yye89 --from-literal pwd=Password123
+```
+
+get Secret's values (base-64 encoded):
+```bash
+kubectl get secret creds -o yaml
+```
+

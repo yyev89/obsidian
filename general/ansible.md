@@ -31,6 +31,8 @@ explore current configuration:
 ansible-config list
 # Current values:
 ansible-config dump
+# Only changes from default:
+ansible-config dump --only-change
 ```
 
 ansible.cfg file:
