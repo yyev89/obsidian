@@ -188,3 +188,9 @@ get Secret's values (base-64 encoded):
 kubectl get secret creds -o yaml
 ```
 
+### EKS
+
+update local kubeconfig to use EKS cluster:
+```bash
+aws eks update-kubeconfig --region eu-central-1 --name production-demo
+```
