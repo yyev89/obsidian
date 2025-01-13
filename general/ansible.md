@@ -153,7 +153,7 @@ play to restart a service after previous changes:
 
 install or remove role from ansible galaxy:
 ```bash
-ansible-galaxy role install|remove geerlingguy.apache
+ansible-galaxy role install[remove] geerlingguy.apache
 ```
 
 list installed roles:
@@ -176,7 +176,7 @@ ansible-vault create secret.txt
 
 encrypt or decrypt an existing file:
 ```bash
-ansible-vault encrypt|decrypt secret.txt
+ansible-vault encrypt[decrypt] secret.txt
 ```
 
 view encrypted file without decryption:

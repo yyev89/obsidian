@@ -27,7 +27,7 @@ journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show --value --property=Invocation
 
 filter messages within a time range:
 ```bash
-journalctl --since now|today|yesterday|tomorrow --until YYYY-MM-DD HH:MM:SS
+journalctl --since now[today|yesterday|tomorrow] --until YYYY-MM-DD HH:MM:SS
 ```
 
 show all messages by a specific process:

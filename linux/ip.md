@@ -1,6 +1,6 @@
 list interfaces with detailed info:
 ```bash
-ip address|addr|a
+ip address[addr|a]
 ```
 
 list interfaces with brief network layer info (colored):
@@ -10,12 +10,12 @@ ip -br -c a
 
 display the routing table:
 ```bash
-ip route|r
+ip route[r]
 ```
 
 show neighbors (ARP table):
 ```bash
-ip neighbour|n
+ip neighbour[n]
 ```
 
 make an interface up/down:
@@ -25,7 +25,7 @@ ip link set interface up|down
 
 add/delete an IP address to and interface:
 ```bash
-ip a add|del ip/mask dev interface
+ip a add[del] ip/mask dev interface
 ```
 
 add a default route:

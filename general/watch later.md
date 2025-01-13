@@ -2,8 +2,4 @@
 - [ ] opentelemetry
 - [ ] sar, tcdump, iotop, vmstat,  pmap, iostat, strace, mtr, free, ps, lsof, iproute2
 - [ ] GitLab
-- [ ] Grafana stack
 - [ ] Kibana
-- [x] eBPF
-- [x] Pika Backup (GNOME)
-- [x] Proton Mail/Pass/Storage

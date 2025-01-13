@@ -11,7 +11,7 @@ kubectl explain namespace
 
 list all namespaces:
 ```bash
-kubectl get namespaces|ns
+kubectl get namespaces[ns]
 ```
 
 create namespace in the cluster from cli:
@@ -86,7 +86,7 @@ kubectl edit pod hello-pod
 
 list all replicasets:
 ```bash
-kubectl get replicasets|rs
+kubectl get replicasets[rs]
 ```
 
 ### Deployment
@@ -95,7 +95,7 @@ adds the concept of "rollouts" and "rollbacks", used for long-running stateless 
 
 list all deployments:
 ```bash
-kubectl get deployments|deploy
+kubectl get deployments[deploy]
 ```
 
 imperatively scale deployment to 5 replicas:
@@ -115,7 +115,7 @@ kubectl rollout status deployment <name>
 
 pause/resume the rollout:
 ```bash
-kubectl rollout pause|resume deploy <name>
+kubectl rollout pause[resume] deploy <name>
 ```
 
 check the history of deployments:
@@ -144,7 +144,7 @@ kubectl rollout undo deployment <name>
 
 list services in the cluster:
 ```bash
-kubectl get services|svc
+kubectl get services[svc]
 ```
 
 imperativelly create service for deployment:

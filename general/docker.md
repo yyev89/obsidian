@@ -106,7 +106,7 @@ attach container to a specific network:
 ```bash
 docker network ls
 docker network create my-network
-docker run -d --network|--net my-network ubuntu sleep 99
+docker run -d --network[--net] my-network ubuntu sleep 99
 ```
 
 run with different architecture:

@@ -10,12 +10,12 @@ systemctl --failed
 
 start, stop, reload, restart, show the status a service:
 ```bash
-systemctl start|stop|restart|reload|status unit
+systemctl start[stop|restart|reload|status] unit
 ```
 
 enable or disable unit to start on bootup:
 ```bash
-systemctl enable|disable unit
+systemctl enable[disable] unit
 # Enable and immideately start:
 systemctl enable --now unit
 ```
@@ -27,12 +27,12 @@ systemctl daemon-reload
 
 check if unit is active, enabled, failed:
 ```bash
-systemctl is-active|is-enabled|is-failed unit
+systemctl is-active[is-enabled|is-failed] unit
 ```
 
 list all service, socket, automount units filtering by running or failed status:
 ```bash
-systemctl list-units --type=service|socket|automount --state=failed|running
+systemctl list-units --type=service[socket|automount] --state=failed[running]
 ```
 
 other types of units:
@@ -63,7 +63,7 @@ systemctl list-dependencies unit
 
 mark (unmark) a unit as completely unstartable, manual or auto:
 ```bash
-systemctl mask|unmask unit
+systemctl mask[unmask] unit
 ```
 
 show unit status:
