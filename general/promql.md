@@ -49,3 +49,32 @@ get average time that it takes for each request to process on the path "/":
 ```promql
 rate(http_request_duration_seconds_sum{path="/"}[5m]) / rate(http_request_duration_seconds_count{path="/"}[5m])
 ```
+
+get memory usage in Mb:
+```promql
+process_memory_usage_bytes / (1024 * 1024)
+```
+
+show growing memory in last hour in bytes:
+```promql
+deriv(process_resident_memory_bytes[1h])
+```
+
+service-monitor example for kubernetes:
+```yaml
+apiVersion: monitoring.coreos.com/v1
+kind: ServiceMonitor
+metadata:
+  name: fastapi-app
+  namespace: monitoring
+  labels:
+    release: prometheus # matches kube-prometheus-stack release label
+spec:
+  selector:
+    matchLabels:
+      app: fastapi-app # matches application label for service monitor
+  endpoints:
+    - port: web
+    path: /metrics
+    interval: 15s
+```

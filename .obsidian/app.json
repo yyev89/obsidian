@@ -1,7 +1,7 @@
 {
   "spellcheck": false,
   "alwaysUpdateLinks": true,
-  "tabSize": 4,
+  "tabSize": 2,
   "showLineNumber": false,
   "useTab": false,
   "vimMode": true
