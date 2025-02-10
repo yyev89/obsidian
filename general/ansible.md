@@ -238,3 +238,42 @@ ansible-playbook --syntax-check webservers-tls.yml
 ansible-lint webservers-tls.yml
 yamllint webservers-tls.yml
 ```
+
+simple loop example with conditions and variables:
+```yaml
+---
+- name: simple loop demo
+  hosts: localhost
+
+  tasks:
+    - name: echo a value from the loop
+      ansible.builtin.command: echo "{{ item }}"
+      loop:
+        - 1
+        - 2
+        - 3
+        - 4
+        - 5
+      when: item|int > 2
+      register: loopresult
+
+    - name: print results of the loop
+      ansible.builtin.debug:
+        var: loopresult
+```
+
+to run set of tasks as one unit:
+```yaml
+...
+    - name: block to handle errors
+      block:
+        - task 1
+        - task 2
+        - task 3
+      rescue:
+        - otherwise 1
+        - otherwise 2
+        - otherwise 3
+      always:
+        - task 1
+```
