@@ -51,3 +51,18 @@ show only entries for specified syslog identifier:
 ```bash
 journalctl -t dockerd
 ```
+
+filter log by text:
+```bash
+journalctl -g 'kernel.*memory'
+```
+
+display kernel messages:
+```bash
+journalctl -k
+```
+
+get boot ID's:
+```bash
+journalctl --list-boots
+```
