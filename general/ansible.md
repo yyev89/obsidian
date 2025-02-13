@@ -277,3 +277,23 @@ to run set of tasks as one unit:
       always:
         - task 1
 ```
+
+list all the modules with documentation installed:
+```bash
+ansible-doc -l
+```
+
+open page for specific module docs:
+```bash
+ansible-doc amazon.aws.s3_bucket
+```
+
+list installed collections:
+```bash
+ansible-galaxy collections list
+```
+
+install collection:
+```bash
+ansible-galaxy collection install <name>:<version>
+```
