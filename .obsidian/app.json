@@ -3,6 +3,6 @@
   "alwaysUpdateLinks": true,
   "tabSize": 2,
   "showLineNumber": false,
-  "useTab": false,
+  "useTab": true,
   "vimMode": true
 }

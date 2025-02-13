@@ -198,3 +198,71 @@ Pros:
 Cons:
 - multiple `terraform apply` required to provision environments
 - more code duplication, but can be minimized with modules
+
+### Loops, tips and tricks
+
+for_each expression:
+```hcl
+resource "aws_iam_user" "example" {
+	for_each = toset(var.user_names)
+	name     = each.value
+}
+```
+
+for loop with list:
+```hcl
+output "upper_names" {
+	value = [for name in var.names : upper(name) if lenght(name) < 5]
+}
+```
+
+for loop with map:
+```hcl
+output "bios" {
+	value = [for name, role in var.hero_thousand_faces : "${name} is the ${role}"]
+}
+```
+
+loop over a list and output a map:
+```hcl
+{for <item> in <list> : <output_key> => <output_value>}
+```
+
+loop over a map and output a map:
+```hcl
+{for <key>, <value> in <map> : <output_key> => <output_value>}
+```
+
+for string directive:
+```hcl
+output "for_directive"
+	value = "%{ for name in var.names }${name}, %{ endfor }"
+}
+
+# outputs:
+# for_directive = "neo, trinity, morpheus, "
+```
+
+ternary conditional expression:
+```hcl
+<condition> ? <true_value> : <false_value>
+```
+
+if-else string directive:
+```hcl
+%{ if <condition> }<true_val>%{ else }<false_val>%{ endif }
+```
+
+example:
+```hcl
+output "for_directive_index_if_else_strip" {
+	value = <<EOF
+%{~ for i, name in var.names ~}
+${name}%{ if i < length(var.names) - 1 }, %{ else }.%{ endif }
+%{~ endfor ~}
+EOF
+}
+
+# outputs:
+# for_directive_index_if_else_strip = "neo, trinity, morpheus."
+```
