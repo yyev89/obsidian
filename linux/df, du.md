@@ -51,3 +51,8 @@ sort output:
 du -a --si / | sort -h
 ```
 
+view size of the items in current dir and sort it from the largest to smallest:
+```bash
+du -sh * | sort -nr
+```
+
