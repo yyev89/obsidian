@@ -262,6 +262,31 @@ simple loop example with conditions and variables:
         var: loopresult
 ```
 
+another loop examples:
+```yaml
+	- name: install packages
+	  yum: name={{item}} state=installed
+	  with_items:
+			- mariadb-server
+			- MySQL-python
+			- libselinux-python
+
+	- name: looping over environment facts
+	  debug: msg={{item.key}}={{item.value}}
+		with_dict: ansible_env
+
+	- name: looping over files and then copy
+	  copy: src={{item}} dest=/tmp/loops
+	  with_fileglob: "/tmp/*.conf"
+
+	- name: do until something
+	  shell: echo hello
+	  register: output
+	  retries: 5
+	  delay: 5
+	  until: output.stdout.find('hello') != -1
+```
+
 to run set of tasks as one unit:
 ```yaml
 ...

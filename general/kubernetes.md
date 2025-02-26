@@ -133,6 +133,12 @@ undo the rollout to the previous state of replicaset:
 kubectl rollout undo deployment <name>
 ```
 
+add termination time for gracefull shutdown of a pod:
+```yaml
+spec:
+	terminationGracePeriodSeconds: 40
+	containers:
+```
 ### Service
 
 - serves as an internal load balancer across replicas
