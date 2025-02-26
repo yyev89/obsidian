@@ -33,3 +33,7 @@ sort processes by memory consumption:
 ps --sort size
 ```
 
+show tread information with TID:
+```bash
+ps m -o pid,tid,command
+```
