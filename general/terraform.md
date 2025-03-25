@@ -266,3 +266,44 @@ EOF
 # outputs:
 # for_directive_index_if_else_strip = "neo, trinity, morpheus."
 ```
+
+try expression:
+```hcl
+try(ARG1, ARG2, ..., ARGN)
+
+# example:
+locals {
+	status = kubernetes_service.app.status
+}
+
+output "service_endpoint" {
+	value = try(
+		"http://${local.status[0]["load_balancer"][0]["ingress"][0]["hostname"]}",
+		"(error parsing hostname from status)"
+	)
+	description = "The K8S Service endpoint"
+}
+```
+### Multiple providers and resources
+
+Common use case for aliases when you have multiple providers that need to authenticate in different ways, such as each one authenticating to a different AWS account
+
+using aliases for different regions:
+```hcl
+provider "aws" {
+	region = "us-east-2"
+	alias = "region_1"
+}
+
+provider "aws" {
+	region = "us-west-1"
+	alias = "region_2"
+}
+
+# define resource with alias
+resource "aws_instance" "region_1" {
+	provider      = aws.region_1
+	ami           = "ami-0fb653ca2d3203ac1"
+	instance_type = "t2.micro"
+}
+```

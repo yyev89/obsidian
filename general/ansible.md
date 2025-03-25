@@ -322,3 +322,9 @@ install collection:
 ```bash
 ansible-galaxy collection install <name>:<version>
 ```
+
+include other tasks or playbooks in the current one:
+```yaml
+tasks:
+	- include: selinux.yml
+```
