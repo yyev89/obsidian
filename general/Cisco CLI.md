@@ -158,3 +158,76 @@ show running-config | include <string>
 # example:
 show running-config | include ip route
 ```
+
+### VLANs
+
+discover vlans on a switch:
+```
+show vlan brief
+```
+
+add interfaces to a vlan:
+```
+interface range g1/0 - 3
+switchport mode access
+switchport access vlan 10
+```
+
+rename vlan:
+```
+# also creates vlan if doesn't exist:
+vlan 10
+name ENGINEERING
+```
+
+trunk interface configuration:
+```
+interface g0/0
+switchport trunk encapsulation dot1q
+switchport mode trunk
+# check:
+show interfaces trunk
+```
+
+configure list of vlans allowed:
+```
+int g0/0
+switchport trunk allowed vlan 10,30
+switchport trunk allowed vlan add 20
+switchport trunk allowed vlan remove 20
+```
+
+change native vlan (better to choose unused vlan for security):
+```
+switchport trunk native vlan 1001
+```
+
+configure router on a stick:
+```
+interface g0/0
+no shutdown
+interface g0/0.10
+encapsulation dot1q 10
+ip address 192.168.1.62 255.255.255.192
+```
+
+reset to default settings on the interface:
+```
+default interface g0/1
+```
+
+### Layer-3 switches
+
+enable layer 3 routing on a switch:
+```
+ip routing
+interface g0/1
+no switchport
+```
+
+SVI (switch virtual interface) configuration:
+```
+interface vlan10
+ip address <ip> <mask>
+no shutdown
+```
