@@ -552,3 +552,124 @@ ipv6 adress 2001:db8:0:0::1/64
 no shutdown
 show ipv6 interface brief
 ```
+
+EUI-64 address:
+```
+int g0/0
+ipv6 address 2001:db8::/64 eui-64
+no shutdown
+```
+
+enable ipv6 on interface without explicitly configuring ipv6 address (link-local):
+```
+int g0/1
+ipv6 enable
+```
+
+show ipv6 neighbor table (like ARP in ipv4):
+```
+show ipv6 neighbor
+```
+
+SLAAC (stateless address auto-configuration) config which uses NDP (neighbor discovery):
+```
+int g0/0
+ipv6 address autoconfig
+```
+
+### ACL
+
+numbered standard: 1-99, 1300-1999
+numbered extended: 100-199, 2000-2699
+named (both): name
+
+configure standard numbered ACL:
+```
+access-list <number> deny[permit] <ip> <wildcard>
+# example:
+access-list 1 deny 1.1.1.1 0.0.0.0
+# wildcard-mask can be omited, which means the same (/32):
+access-list 1 deny 1.1.1.1
+# allow other traffic (because of implicit deny default ACE):
+access-list 1 permit any
+# "any" means the same as 0.0.0.0 255.255.255.255
+```
+
+add description to the ACL:
+```
+access-list 1 remark ## BLOCK BOB FROM ACCOUNTING ##
+```
+
+display all ACL's on the router:
+```
+show access-lists
+show ip access-lists
+```
+
+apply ACL to an interface:
+```
+int g0/0
+ip access-group <number> {in|out}
+```
+
+configure standard named ACL:
+```
+ip access-list standard <acl-name>
+[entry-number] {deny|permit} <ip> <wildcard>
+# example:
+ip access-list standard BLOCK_BOB
+5 deny 1.1.1.1
+10 permit any
+remark ## CONFIGURED NOV 21 2020 ##
+interface g0/0
+ip access-group BLOCK_BOB in
+```
+
+check:
+```
+show running-config | section access-list
+```
+
+remove the rule from the list in the ACL config mode:
+```
+R1(config-std-nacl)# no 30
+```
+
+**BUT**: when configuring/editing numbered ACLs from global config mode, you can't delete individual entries, only the entire ACL:
+```
+no access-list 1
+```
+
+resequence ACL entries:
+```
+ip access-list resequence <acl-id> <starting-seq-num> <increment>
+# example:
+ip access-list resequence 1 10 10
+```
+
+extended numbered ACL:
+```
+access-list <number> {permit|deny} <protocol> <src-ip> <dest-ip>
+```
+
+extended named ACL:
+```
+ip access-list extended {name|number}
+[seq-num] {permit|deny} <protocol> <src-ip> <dest-ip>
+```
+
+few examples:
+```
+# allow all traffic:
+permit ip any any
+# prevent 10.0.0.0/16 from sending UDP to 192.168.1.1/32:
+deny udp 10.0.0.0 0.0.255.255 host 192.168.1.1
+# prevent 172.16.1.1/32 from pinging hosts in 192.168.0.0/24:
+deny icmp host 172.16.1.1 192.168.0.0 0.0.0.255
+# allow traffic from 10.0.0.0/16 to access the server at 2.2.2.2/32 using HTTPS:
+permit tcp 10.0.0.0 0.0.255.255 host 2.2.2.2 eq 443
+# prevent all hosts using source UDP port numbers from 20000 to 30000 from accessing the server at 3.3.3.3/32:
+deny udp any range 20000 30000 host 3.3.3.3
+# allow hosts in 172.16.1.0/24 using a TCP source port greater than 9999 to access all TCP ports on server 4.4.4.4/32 except port 23:
+permit tcp 172.16.1.0 0.0.0.255 gt 9999 host 4.4.4.4 neq 23
+```
