@@ -673,3 +673,56 @@ deny udp any range 20000 30000 host 3.3.3.3
 # allow hosts in 172.16.1.0/24 using a TCP source port greater than 9999 to access all TCP ports on server 4.4.4.4/32 except port 23:
 permit tcp 172.16.1.0 0.0.0.255 gt 9999 host 4.4.4.4 neq 23
 ```
+
+### CDP, LLDP
+
+show CDP info:
+```
+# timers:
+show cdp
+# traffic:
+show cdp traffic
+# basic info about interfaces:
+show cdp interface
+# table: 
+show cdp neighbors [detail]
+# for specific neighbor:
+show cdp entry <name>
+```
+
+CDP configuration:
+```
+# enable:
+cdp run
+# enable on the interface:
+cdp enable
+# timer:
+cdp timer <sec>
+# holdtime:
+cdp holdtime <sec>
+# enable v2:
+cdp advertise-v2
+```
+
+LLDP configuration:
+```
+# enable:
+lldp run
+# on interface:
+lldp transit
+lldp receive
+# timers:
+lldp timer <sec>
+lldp holdtime <sec>
+lldp reinit <sec>
+```
+
+show LLDP info:
+```
+show lldp
+show lldp traffic
+show lldp interface
+# table:
+show lldp neighbors [detail]
+show lldp entry <name>
+```
