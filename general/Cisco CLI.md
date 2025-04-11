@@ -709,7 +709,7 @@ LLDP configuration:
 # enable:
 lldp run
 # on interface:
-lldp transit
+lldp transmit
 lldp receive
 # timers:
 lldp timer <sec>
@@ -725,4 +725,102 @@ show lldp interface
 # table:
 show lldp neighbors [detail]
 show lldp entry <name>
+```
+
+### NTP
+
+check time (default zone is UTP):
+```
+show clock [detail]
+```
+
+manually configure time:
+```
+clock set 14:30:00 27 Dec 2020
+```
+
+manually configure calendar (hardware clock):
+```
+calendar set 14:35:00 27 Dec 2020
+# check:
+show calendar
+# sync the calendar to the clock's time:
+clock update-calendar
+# sync the clock to the calendar:
+clock read-calendar
+```
+
+configure timezone:
+```
+clock timezone JST 9
+```
+
+summer-time:
+```
+clock summer-time EDT recurring 2 Sunday March 02:00 1 Sunday November 02:00
+```
+
+configure NTP:
+```
+ntp server <ip> [prefer]
+```
+
+show servers information:
+```
+show ntp associations
+```
+
+show overall info:
+```
+show ntp status
+```
+
+update hardware time:
+```
+ntp update-calendar
+```
+
+configure device as a reference:
+```
+# server mode:
+ntp master
+# symmetric active mode:
+ntp peer <ip>
+```
+
+NTP auth:
+```
+ntp authenticate
+ntp authentication key <key-number> md5 <key>
+ntp trusted-key <key-number>
+# for clients only:
+ntp server <ip> key <key-number>
+```
+
+### DNS
+
+configure router as a DNS server:
+```
+ip dns server
+ip host R1 192.168.0.1
+ip host PC1 192.168.0.101
+...
+ip name-server 8.8.8.8
+ip domain lookup
+```
+
+as a client:
+```
+ip name-server <ip>
+ip domain lookup
+```
+
+view configured and learned hosts:
+```
+show hosts
+```
+
+set the default domain name:
+```
+ip domain name jeremysitlab.com
 ```
