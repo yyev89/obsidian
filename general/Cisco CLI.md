@@ -824,3 +824,97 @@ set the default domain name:
 ```
 ip domain name jeremysitlab.com
 ```
+
+### DHCP
+
+configure router as a DNS server:
+```
+service dhcp
+ip dhcp excluded-address 192.168.1.1 192.168.1.10
+ip dhcp pool LAB_POOL
+network 192.168.1.0 /24
+dns-server 8.8.8.8
+domain-name jeremysitlab.com
+default-router 192.168.1.1
+# lease time in <days> <hours> <minutes> or <infinite>:
+lease 0 5 30
+```
+
+check ip-addresses bindings:
+```
+show ip dhcp binding
+show ip dhcp pool
+show ip dhcp server statistics
+```
+
+configure router as a relay agent:
+```
+int g0/1
+ip helper-address 192.168.10.10
+# check:
+do show ip interface g0/1
+```
+
+(rare) configure router as a DHCP client:
+```
+int g0/1
+ip address dhcp
+```
+
+### SNMP
+
+SNMPv2c configuration:
+```
+snmp-server contact jeremy#jeremysitlab.com
+snmp-server location Jeremy's House
+snmp-server community Jeremy1 ro
+snmp-server community Jeremy2 rw
+# specify the NMS, version, community:
+snmp-server host 192.168.1.1 version 2c Jeremy1
+# configure trap types to send to NMS:
+snmp-server enable traps snmp linkdown linkup
+snmp-server enable traps config
+```
+
+### Syslog
+
+message format:
+```
+seq:time stamp: %facility-severity-MNEMONIC:description
+```
+
+view buffer content:
+```
+show logging
+```
+
+configuration:
+```
+# configure logging to the console line (level number or keyword):
+logging console 6
+# to the vty lines (resets on every session):
+terminal monitor
+logging monitor informational
+# to the buffer ([size], level):
+logging buffered 8192 6
+# to an external server:
+logging 192.168.1.100
+logging host 192.168.1.100
+logging trap debugging
+```
+
+to show logs not interrupting  of typing the command:
+```
+line console 0
+logging synchronous
+```
+
+enable timestamps:
+```
+service timestamps log datetime
+```
+
+enable sequense numbers:
+```
+service sequence-numbers
+```
