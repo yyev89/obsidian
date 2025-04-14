@@ -918,3 +918,65 @@ enable sequense numbers:
 ```
 service sequence-numbers
 ```
+
+### telnet, SSH
+
+configure a password on the console line:
+```
+line console 0
+password ccna
+login
+end
+```
+
+require a username:
+```
+username jeremy secret ccnp
+line console 0
+login local
+end
+```
+
+set timeout in minutes and seconds:
+```
+exec-timeout 3 30
+```
+
+assign IP address to an SVI on a switch:
+```
+interface vlan1
+ip address 192.168.1.253 255.255.255.0
+no shutdown
+exit
+ip default-gateway 192.168.1.254
+```
+
+telnet configuration:
+```
+enable secret ccna
+username jeremy secret ccna
+access-list 1 permit host 192.168.2.1
+line vty 0 15
+login local
+exec-timeout 5 0
+transport input telnet [ssh|all|none]
+access-class 1 in
+```
+
+SSH configuration:
+```
+show ip ssh
+# hostname and FQDN are used to name RSA keys:
+hostname R1
+ip domain name jeremysitlab.com
+crypto key generate rsa
+enable secret ccna
+username jeremy secret ccna
+access-list 1 permit host 192.168.2.1
+ip ssh version 2
+line vty 0 15
+login local
+exec-timeout 5 0
+transport input ssh
+access-class 1 in
+```
