@@ -47,3 +47,10 @@ for specific ip address:
 ```bash
 sudo lsof -i @127.0.0.1
 ```
+
+full syntax:
+```bash
+sudo lsof -i<protocol>@<host><port>
+# example:
+sudo lsof -iTCP:443
+```
