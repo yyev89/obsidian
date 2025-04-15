@@ -965,7 +965,10 @@ access-class 1 in
 
 SSH configuration:
 ```
+# check status:
 show ip ssh
+# check connections:
+show ssh
 # hostname and FQDN are used to name RSA keys:
 hostname R1
 ip domain name jeremysitlab.com
@@ -979,4 +982,39 @@ login local
 exec-timeout 5 0
 transport input ssh
 access-class 1 in
+```
+
+### FTP, TFTP
+
+view file systems:
+```
+show file systems
+```
+
+copy and set a new ios version by TFTP:
+```
+copy tftp: flash:
+<address>
+<filename>
+show flash
+conf t
+boot system flash:<filename>
+exit
+write memory
+reload
+```
+
+delete old file:
+```
+delete flash:<filename>
+```
+
+same with FTP:
+```
+ip ftp username cisco
+ip ftp password cisco
+exit
+copy ftp: flash:
+<address>
+<filename>
 ```
