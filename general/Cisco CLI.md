@@ -1018,3 +1018,179 @@ copy ftp: flash:
 <address>
 <filename>
 ```
+
+### NAT
+
+configure static NAT:
+```
+int g0/1
+ip nat inside
+int g0/0
+ip nat outside
+exit
+ip nat inside source static 192.168.0.167 100.0.0.1
+ip nat inside source static 192.168.0.168 100.0.0.2
+exit
+```
+
+check translations:
+```
+show ip nat translations
+# clear the table:
+clear ip nat translation *
+```
+
+show NAT info:
+```
+show ip nat statistics
+```
+
+configure dynamic NAT:
+```
+int g0/1
+ip nat inside
+int g0/0
+ip nat outside
+exit
+access-list 1 permit 192.168.0.0 0.0.0.255
+ip nat pool POOL1 100.0.0.0 100.0.0.255 prefix-length 24
+ip nat inside source list 1 pool POOL1
+```
+
+configure PAT:
+```
+...same as NAT...
+ip nat inside source list 1 pool POOL1 overload
+```
+
+configure PAT (interface):
+```
+int g0/1
+ip nat inside
+int g0/0
+ip nat outside
+exit
+access-list 1 permit 192.168.0.0. 0.0.0.255
+ip nat inside source list 1 interface g0/0 overload
+```
+
+### QoS
+
+class-maps:
+```
+class-map HTTPS_MAP
+match protocol https
+exit
+class-map HTTP_MAP
+match protocol http
+exit
+class-map ICMP_MAP
+match protocol icmp
+exit
+do show run | section class-map
+```
+
+policy-maps:
+```
+policy-map G0/0/0_OUT
+class HTTPS_MAP
+set ip dscp af31
+proirity percent 10
+exit
+class HTTP_MAP
+set ip dscp af32
+bandwidth percent 10
+exit
+class ICMP_MAP
+set ip dscp cs2
+bandwidth percent 5
+exit
+do sh run | section policy-map
+```
+
+apply configuration to the interface:
+```
+int g0/0/0
+service-policy output G0/0/0_OUT
+```
+
+### Security basics
+
+AAA - authentication / authorization / accounting (logging). Cisco's AAA server: ISE (Identity Services Engine). Servers usually support two AAA protocols:
+```
+RADIUS (UDP ports 1812 and 1813)
+TACACS+ (TCP port 49)
+```
+
+port security configuration:
+```
+int g0/1
+# must be manually configured as access or trunk:
+do show int g0/1 switchport
+switchport mode access
+# enable with default settings:
+switchport port-security
+show port-security interface g0/1
+```
+
+check err-disable configurations:
+```
+show errdisable recovery
+# enable for port-security:
+errdisable recovery cause psecure-violation
+# change default timer (300):
+errdisable recovery interval 180
+```
+
+restrict modes:
+```
+switchport port-security
+switchport port-security mac-address 000a.000a.000a
+switchport port-security violation {restrict|protect}
+```
+
+change aging timers:
+```
+switchport port-security aging time {minutes}
+switchport port-security aging type {absolute|inactivity}
+switchport port-security aging static
+```
+
+check which ports have port security:
+```
+show port-security
+```
+
+enable sticky MAC-addresses:
+```
+switchport port-security
+switchport port-security mac-address sticky
+show mac address-table secure
+```
+
+### VRF
+
+create new VRF:
+```
+ip vrf CUSTOMER1
+ip vrf CUSTOMER2
+# check:
+show ip vrf
+```
+
+configure interface to be in specific VRF:
+```
+int g0/0
+ip vrf forwarding CUSTOMER1
+ip address 192.168.1.1 255.255.255.252
+```
+
+get routing table for specific VRF:
+```
+show ip route vrf CUSTOMER1
+```
+
+ping IP address in one of the VRF's:
+```
+ping vrf CUSTOMER1 192.168.1.2
+```
