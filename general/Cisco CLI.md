@@ -1122,7 +1122,7 @@ RADIUS (UDP ports 1812 and 1813)
 TACACS+ (TCP port 49)
 ```
 
-port security configuration:
+**port security** configuration:
 ```
 int g0/1
 # must be manually configured as access or trunk:
@@ -1166,6 +1166,29 @@ enable sticky MAC-addresses:
 switchport port-security
 switchport port-security mac-address sticky
 show mac address-table secure
+```
+
+**DHCP snooping** configuration:
+```
+ip dhcp snooping
+ip dhcp snooping vlan 1
+no ip dhcp snooping information option
+int g0/0
+ip dhcp snooping trust
+```
+
+check binding table:
+```
+show ip dhcp snooping binding
+```
+
+limit DHCP message rate to 1 packet per second:
+```
+int range g0/1 - 3
+ip dhcp snooping limit rate 1
+# enable error recovery:
+errdisable recovery cause dhcp-rate-limit
+show errdisable recovery
 ```
 
 ### VRF
