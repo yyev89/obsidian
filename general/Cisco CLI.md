@@ -539,7 +539,7 @@ standby 1 preempt
 ```
 standby version 2
 standby 1 ip 172.16.0.254
-show standby
+show standby [brief]
 ```
 
 ### IPv6
@@ -1191,6 +1191,47 @@ errdisable recovery cause dhcp-rate-limit
 show errdisable recovery
 ```
 
+**Dynamic ARP** configuration:
+```
+ip arp inspection vlan 1
+# trusted ports:
+int range g0/0 - 1
+ip arp inspection trust
+```
+
+check interfaces:
+```
+show ip arp inspection interfaces
+# check all info:
+show ip arp inspection
+```
+
+rate limiting:
+```
+int range g0/1 - 2
+ip arp inspection limit rate 25 burst interval 2
+```
+
+recovery:
+```
+errdisable recovery cause arp-inspection
+```
+
+optional checks:
+```
+ip arp inspection validate dst-mac
+ip arp inspection validate ip
+ip arp inspection validate src-mac
+do sh run | i validate
+```
+
+ARP ACL:
+```
+arp access-list ARP-ACL-1
+permit ip host 192.168.1.100 mac host aaaa.bbbb.cccc
+ip arp inspection filter ARP-ACL-1 vlan 1
+```
+
 ### VRF
 
 create new VRF:
@@ -1216,4 +1257,20 @@ show ip route vrf CUSTOMER1
 ping IP address in one of the VRF's:
 ```
 ping vrf CUSTOMER1 192.168.1.2
+```
+
+### WAN, tunnels
+
+GRE tunnel configuration (also needs default routes):
+```
+# one side:
+int tunnel 0
+tunnel source g0/0/0
+tunnel destination 200.0.0.2
+ip address 192.168.1.1 255.255.255.252
+# other side:
+int tunnel 0
+tunnel source g0/0/0
+tunnel destination 100.0.0.2
+ip address 192.168.1.2 255.255.255.252
 ```
