@@ -104,7 +104,7 @@ nat (dmz,outside) static web-outside
 # check:
 sh run object
 sh run nat
-sh nat
+sh nat [detail]
 sh xlate
 ```
 
@@ -296,4 +296,115 @@ interface g1
  crypto map LAB-VPN
 !
 ip route 10.1.10.0 255.255.255.0 12.88.43.1
+```
+
+### ACL
+
+create ACL for allowing ping from anywhere to anything:
+```
+access-list global_access extended permit icmp any any
+show access-list [acl_name]
+```
+
+apply it to work on every interface (can be applied only 1 at a time, next will override this):
+```
+access-group global_access global
+show run access-group
+```
+
+traffic between two interfaces with the same security level is denied by default
+
+create ACL to allow traceroute from linux machines via UDP and apply it to inside interface:
+```
+access-list Traceroute permit udp any any range 33434 33464
+access-group Traceroute in interface inside
+```
+
+rename ACL:
+```
+access-list Traceroute rename inside_in
+```
+
+create object-group for http/https traffic:
+```
+object-group service web tcp
+description Web Browsing
+port-object eq http
+port-object eq https
+```
+
+create ACL with the OG:
+```
+access-list inside_in remark Allow web browsing from the inside
+access-list inside_in permit tcp any any object-group web
+```
+
+create object for one server-host:
+```
+object network Server-Intranet
+host 172.16.0.1
+description Intranet Server
+```
+
+create ACL with the object:
+```
+access-list outside_in remark Allow HTTPS
+access-list outside_in permit tcp any object Server-Intranet eq https
+access-group outside_in in interface outside
+```
+
+packet-tracer utility:
+```
+packet-tracer input inside tcp 192.168.0.1 80 123.1.7.10 80
+```
+
+remove ACL from the firewall (BE CAREFULL):
+```
+clear configure access-list [acl_name]
+```
+
+### NAT
+
+static NAT conf example:
+```
+object network Server-Intranet-Public
+host 200.1.1.1
+desc Intranet server mapped ip
+exit
+object network Server-Intranet-Outside
+host 172.16.0.1
+desc Intranet server real ip
+nat (dmz,outside) static Server-Intranet-Public
+```
+
+dynamic NAT conf example:
+```
+object network Inside-Subnet
+subnet 192.168.0.0 255.255.255.0
+desc Workstation subnet
+exit
+object network Internet-PAT
+host 200.1.1.254
+desc Mapped general internet ip
+exit
+nat (inside,outside) source dynamic Inside-Subnet Internet-PAT desc General internet access
+```
+
+dynamic NAT using pool:
+```
+object network Internet-PAT-Pool
+range 200.1.1.253 200.1.1.254
+exit
+nat (inside,outside) source dynamic Inside-Subnet pat-pool Internet-PAT-Pool desc General internet access
+```
+
+identity NAT conf example:
+```
+# access router from the PC via ssh:
+object network WS-1
+host 192.168.0.1
+desc Workstation 1
+nat (inside,outside) static 192.168.0.1
+exit
+access-list inside_in permit tcp 192.168.0.1 255.255.255.255 20.0.0.1 255.255.255.255 eq 22
 ```
