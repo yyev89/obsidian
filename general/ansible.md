@@ -328,3 +328,18 @@ include other tasks or playbooks in the current one:
 tasks:
 	- include: selinux.yml
 ```
+
+check mode to test a playbook in a dry-run:
+```bash
+ansible-playbook -i hosts site.yml --check
+```
+
+begin the playbook from specific task:
+```bash
+ansible-playbook -i hosts testErrors.yml --start-at-task="quick echo"
+```
+
+run the playbook step by step with confirmation (y/n/c):
+```bash
+ansible-playbook -i hosts testErrors.yml --step
+```
