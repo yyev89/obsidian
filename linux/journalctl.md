@@ -8,6 +8,21 @@ delete journal logs which are older than 2 days:
 journalctl --vacuum-time=2d
 ```
 
+limit the size of journal log files:
+```bash
+journalctl --vacuum-size=1G
+```
+
+compress old files:
+```bash
+journalctl --vacuum-files=5
+```
+
+view disk usage by log files:
+```bash
+journalctl --disk-usage
+```
+
 show only last N lines and follow new messages:
 ```bash
 journalctl --lines N --follow
