@@ -267,7 +267,7 @@ crypto ikev1 enable outside
 route outside 10.2.10.0 255.255.255.0 56.10.22.7
 ```
 
-site-to-site VPN between ASA and router example configuration, ASA side:
+site-to-site VPN between ASA and router example configuration, router side:
 ```
 ip access-list extended vpn
  permit ip 10.2.10.0 0.0.0.255 10.1.10.0 0.0.0.255
