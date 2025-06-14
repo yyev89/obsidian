@@ -16,6 +16,16 @@ connect:
 psql -h hostname -d database -U username -W
 ```
 
+list of all commands (help):
+```sql
+\?
+```
+
+run a linux command from psql:
+```sql
+\! pwd
+```
+
 list all:
 ```sql
 --databases:
@@ -70,4 +80,9 @@ show privileges for table:
 display empty strings as "NULL":
 ```bash
 \pset null NULL
+```
+
+turn on expansion:
+```sql
+\x on
 ```
