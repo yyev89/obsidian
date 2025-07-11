@@ -7,3 +7,14 @@ Ground rules:
 - it should be possible to ask for other special packet handling
 - it should be possible to hide information when needed without impacting overall routing operation
 - it should be possible to scale to hundreds of milliones of routes, paths etc.
+
+**NLRI** - network layer reachability information - reachable destination of any kind (v4, v6 etc)
+
+**Attribute** - anything describing info about NLRI (policy markers, routing info etc)
+
+**Route** - NLRI + attributes
+
+**Speaker** - a device that runs BGP, the BGP process running on a device
+
+**Peer** - a device running BGP that has a relationship with the local device
+
