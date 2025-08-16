@@ -90,3 +90,43 @@ set the ARP age in seconds:
 interface g0/0
  arp timeout 180
 ```
+
+### MTU
+
+MTU determines the maximum packet size that can be sent/received by an interface. Default is 1500 bytes. Ethernet MTU specifies the maximum payload size of frames, checked both ingress and egress (64 to 1518 bytes). IP MTU specifies the maximum size of IP packet before it needs fragmentation. If DF-bit is not set - packets larger than MTU are fragmented, if set - dropped
+
+IP MTU cannot be greater than the Ethernet MTU, if so it will be dropped. Usually they are the same, if Eth MTU is increased - IP MTU is also increased automatically
+
+check and set Eth MTU:
+```
+show interfaces g0/0
+conf t
+int g0/0
+ mtu 1600
+```
+
+check and set IP MTU:
+```
+show ip nterface g0/0
+conf t
+int g0/0
+ ip mtu 1500
+# test:
+ping 192.168.12.2 size 1501 df-bit
+```
+
+System MTU:
+```
+show system mtu
+conf t
+system mtu 1600
+system mtu jumbo 9000
+```
+
+in Cisco IOS, the IP MTU of GRE tunnel interfaces is automatically set to 1476 (1500 - 24 [IP+GRE headers])
+
+Test and check:
+```
+ping 2.2.2.2 size 1500
+show ip traffic interface g0/0
+```
