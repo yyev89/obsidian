@@ -264,27 +264,27 @@ simple loop example with conditions and variables:
 
 another loop examples:
 ```yaml
-	- name: install packages
-	  yum: name={{item}} state=installed
-	  with_items:
-			- mariadb-server
-			- MySQL-python
-			- libselinux-python
-
-	- name: looping over environment facts
-	  debug: msg={{item.key}}={{item.value}}
-		with_dict: ansible_env
-
-	- name: looping over files and then copy
-	  copy: src={{item}} dest=/tmp/loops
-	  with_fileglob: "/tmp/*.conf"
-
-	- name: do until something
-	  shell: echo hello
-	  register: output
-	  retries: 5
-	  delay: 5
-	  until: output.stdout.find('hello') != -1
+- name: "TASK 3: Set Name Servers"
+	ios_config:
+		lines:
+			- ip name-server {{ name_server.ip_address }}
+	loop:
+		- { name: Quad9, ip_address: 9.9.9.9 }
+		- { name: Google DNS, ip_address: 8.8.8.8 }
+		- { name: CloudFlare DNS, ip_address: 1.1.1.1 }
+	loop_control:
+		label: "{{ name_server.name }}"
+		pause: 2
+		loop_var: name_server
+		
+- name: "TASK 4: Set Name Servers - Simple Version"
+	ios_config:
+		lines:
+			- ip name-server {{ item }}
+	loop:
+		- 1.1.1.1
+		- 8.8.8.8
+		- 9.9.9.9
 ```
 
 to run set of tasks as one unit:
