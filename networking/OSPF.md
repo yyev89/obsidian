@@ -21,6 +21,20 @@ show ip ospf database
 - discover other OSPF routers
 - includes info about sending router
 - determines whether adjacency will form
+- some networks don't support multicast, hello packets sent unicast (typically every 30 seconds)
+1. **Router ID** - 32 bit identity of each router
+2. **Hello interval** - frequency of periodic Hello's
+3. **Dead interval** - duration to remember neighbor
+4. **Neighbors** - neighbor router ID(s) seen on link, validates two-way reachability
+5. **Area ID** - OSPF area interface belongs to
+6. **Authentication data** - password restricted peering
+7. **Network mask** - subnet mask for link
+8. **Area type** - normal, stub, NSSA
+9. **DR** - designated router on multi-access link (any link with potential for multi-access), central point for all updates on link, reduces redundant updates
+10. **BDR** - backup designated router
+11. **Priority** - 0-255 (default: 1)
+ 
+2, 3, 5, 6, 7, 8 must match for adjacency
 #### Database descriptor (DBD)
 - summary of LSAs in each router's LSDB
 - avoids sending full LSDB for each neighbor
@@ -40,6 +54,9 @@ show ip ospf database
 - traffic between areas must traverse area 0
 - assures loop free area topologies
 - hub and spoke design
+1. **Normal** - default area type
+2. **Stub** - no redistributed routes, replaced with default route
+3. **NSSA** - not so stubby area, no redistribution except from local area, optionally replaced with default route
 ### Routers
 - internal routers - all interfaces in single area
 - backbone routers - at least one interface in area 0
