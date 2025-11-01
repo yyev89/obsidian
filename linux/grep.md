@@ -8,6 +8,8 @@ grep div *.html
 - `-v` every line that doesnt match (inverted)
 - `-x` search for line
 - `-w word` match the whole word (not part)
+- `-n` line number
+- `-r` recursive
 
 use regexp for matches:
 ```bash
