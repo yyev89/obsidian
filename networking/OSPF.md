@@ -65,3 +65,12 @@ show ip ospf database
 	- maintain an LSDB for _each_ area
 	- summarizes LSAs between areas
 - autonomous system border routers (ASBR) - redistributing foreign routes into OSPF
+
+### OSPF Adjacency
+- state: **DOWN** - initial state when OSPF first configured, sending periodic Hellos to 224.0.0.5
+- state: **INIT** - received a Hello packet, outbound Hellos now include Peer router ID
+- state: **2-WAY** - router sees itself in neighbor's Hello (reachability), routers decide if adjacency will proceed
+- state: **EXSTART** - master / slave election, governs reliable DBD exchange, higher router ID becomes master
+- state: **EXCHANGE** - master /slave election is complete, slave sends confirming DBD, peers exchange LSDB summaries
+- state: **LOADING** - peers know LSAs in neighbor's LSDB, peers begin requesting full LSAs (LSR, LSU, LSAck)
+- state: **FULL** - LSDB's are synchronized, adjacency complete
