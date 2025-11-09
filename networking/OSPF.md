@@ -74,3 +74,52 @@ show ip ospf database
 - state: **EXCHANGE** - master /slave election is complete, slave sends confirming DBD, peers exchange LSDB summaries
 - state: **LOADING** - peers know LSAs in neighbor's LSDB, peers begin requesting full LSAs (LSR, LSU, LSAck)
 - state: **FULL** - LSDB's are synchronized, adjacency complete
+
+### Configuring OSPF commands
+
+check if any dynamic protocols are enabled:
+```
+sh ip protocols
+# show LSDB for the router:
+sh ip ospf database
+```
+
+enable OSPF process number 110:
+```
+conf t
+router ospf 110
+# set router-id:
+router-id 1.1.1.1
+```
+
+check interfaces in OSPF:
+```
+sh ip ospf interface [brief]
+```
+
+add interface to OSPF:
+```
+network 10.0.12.1 0.0.0.0 area 0
+```
+
+check if any neighbors in OSPF exist:
+```
+sh ip ospf neighbor
+```
+
+show routing information base (routing table) for OSPF:
+```
+sh ip ospf rib
+```
+
+add couple of interfaces (loopbacks starting with 10.2.) to OSPF via network with /16 mask:
+```
+network 10.2.0.0 0.0.255.255 area 0
+```
+
+add interface to OSPF from interface configuration:
+```
+conf t
+interface Loopback27
+ip ospf 110 area 0
+```
