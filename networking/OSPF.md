@@ -123,3 +123,26 @@ conf t
 interface Loopback27
 ip ospf 110 area 0
 ```
+
+### Cost
+
+OSPF uses delay - additive metric based on link speed, less delay - better
+- formula = reference bandwidth / link bandwidth
+- default reference bandwidth = 100 mbps
+
+check reference bandwidth/cost:
+```
+show ip ospf
+! "Reference bandwidth unit is 100 mbps"
+show ip ospf interface brief
+! Cost of each interface in the "Cost" column
+```
+
+change reference bandwidth:
+```
+conf t
+router ospf 110
+auto-cost reference-bandwidth 1000
+```
+
+Note: cost field is 16 bits in size, max value is 65535

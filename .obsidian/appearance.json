@@ -2,8 +2,8 @@
   "accentColor": "",
   "cssTheme": "Tokyo Night",
   "theme": "obsidian",
-  "interfaceFontFamily": "Roboto",
-  "textFontFamily": "Roboto",
-  "monospaceFontFamily": "JetBrainsMono Nerd Font",
-  "baseFontSize": 18
+  "interfaceFontFamily": "",
+  "textFontFamily": "JetBrains Mono",
+  "monospaceFontFamily": "JetBrains Mono",
+  "baseFontSize": 16
 }
