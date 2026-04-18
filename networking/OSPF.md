@@ -81,7 +81,7 @@ check if any dynamic protocols are enabled:
 ```
 sh ip protocols
 # show LSDB for the router:
-sh ip ospf database
+sh ip ospf database [router router-id]
 ```
 
 enable OSPF process number 110:
@@ -146,3 +146,29 @@ auto-cost reference-bandwidth 1000
 ```
 
 Note: cost field is 16 bits in size, max value is 65535
+
+### LSA types
+1. **Router LSA** - router identifies itself and it's links (within local area)
+	- IP networks, subnet masks, consts for each router link
+	- used to build topology map of local area
+2. **Network LSA** - sent by designated router (DR) (within local area)
+	- when multiple routers connected to the same multi-access link
+	- DR interface IP
+	- DR router ID
+	- network mask
+	- router ID of all attached routers
+3. **Summary LSA** - contain IP networks from foreign areas (outside local area)
+	- sent by Area Border Routers (ABRs), in both directions
+	- summarizes type 1, type 2 from foreign areas
+	- includes network ID and mask, and cost for ABR to reach target network
+	- ABRs generate a type 3 LSA for _each_ IP network in a foreign area
+	- ABRs generate type 3 LSAs in each direction, for each area they border
+	- ABRs generate type 3 LSAs from other type 3 LSAs from foreign areas
+	- each type 3 LSA includes one IP subnet
+	- type 3 LSAs can create IP summarization boundaries
+4. Routes redistributed into OSPF domain learned via type 4 and type 5 (outside OSPF domain)
+	- **ASBR-Summary LSA** - instructions to reach ASBRs
+	- sent by ABR, when ASBR is in a foreign area
+5. **External LSA** - contain an IP subnet redistributed into OSPF
+	- sent by Autonomous System Border Routers (ASBRs)
+	- forwarded unchanged throughout OSPF domain
