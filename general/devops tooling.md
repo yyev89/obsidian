@@ -30,3 +30,14 @@ get logs from pods with "app=cd" in "preproduction" namespace:
 ```bash
 kubectl stern --selector app=cd --namespace preproduction
 ```
+
+enable promiscuous mode for VMWare:
+```
+sudo vim /etc/init.d/vmware
+# Start the virtual ethernet kernel service
+vmwareStartVmnet() {
+   vmwareLoadModule $vnet
+   "$BINDIR"/vmware-networks --start >> $VNETLIB_LOG 2>&1
+   chmod a+rw /dev/vmnet*
+}
+```
