@@ -1,3 +1,10 @@
+### basic configuration
+set name, mail, and editor:
+```
+git config --global user.name "Name Surname"
+git config --global user.email "example@dot.com"
+git config --global core.editor "vim"
+```
 ### fixing mistakes
 merge main before pushing code:
 ```bash
