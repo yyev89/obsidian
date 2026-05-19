@@ -483,3 +483,25 @@ yay -Qq | fuzzy --preview='yay -Qs {1}' | xargs -r yay -Qi
 # Change fuzzy to fzf:
 ^fuzzy^fzf
 ```
+
+run the script in "debug" mode to see what is actually happening:
+```bash
+PS4='[debug]: ' bash -x script
+```
+
+do ONLY the syntax checking without actually running the code:
+```bash
+bash -n script
+```
+
+check script for undefined variables at runtime (but be careful, it might be already set as environment variable):
+```bash
+bash -u script
+```
+
+check exit codes (status) for each command in the pipeline:
+```bash
+echo "${PIPESTATUS[*]}"
+# for example after this it will be 1 0 1 0:
+cat doesnt-exist.txt | tr , : | grep test | cat
+```
