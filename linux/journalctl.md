@@ -35,7 +35,7 @@ journalctl -u unit
 journalctl -fu unit
 ```
 
-show logs for a given unit sisnce the last time it started:
+show logs for a given unit since the last time it started:
 ```bash
 journalctl _SYSTEMD_INVOCATION_ID=$(systemctl show --value --property=InvocationID unit)
 ```
