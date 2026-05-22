@@ -39,7 +39,7 @@ git log --graph --oneline --decorate
 
 switch to previous branch:
 ```bash
-git checkout -
+git switch -
 ```
 
 discard all local changes in a file, restore deleted file:
@@ -92,6 +92,7 @@ git reset --hard HEAD~1
 create new branch:
 ```bash
 git branch my-new-branch
+git switch -c my-new-branch
 # Based on specific revision:
 git branch other-branch <hash>
 ```
