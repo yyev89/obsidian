@@ -195,3 +195,50 @@ see commits in one branch, but NOT in another one:
 # In main, but not in feature/login:
 git log feature/login..main
 ```
+
+### stashing
+save changes in working directory:
+```bash
+git stash save "working on feature X"
+```
+
+view stashes:
+```bash
+git stash list
+```
+
+bring them back and remove from stash (default is the latest):
+```bash
+git stash pop [stash_name]
+```
+
+bring them back and leave in stash (default is the latest):
+```bash
+git stash apply [stash_name]
+```
+
+remove (clear):
+```bash
+git stash drop
+```
+
+### tags
+mark commit with the tag:
+```bash
+git tag ver1
+```
+
+view tags:
+```bash
+git tag --list
+```
+
+push:
+```bash
+git push --tags
+```
+
+check it out:
+```bash
+git checkout ver1
+```
