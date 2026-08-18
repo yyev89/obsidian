@@ -15,10 +15,15 @@ vagrant init bento/almalinux-9 --box-version 202511.24.0
 ```
 
 or create a Vagrantfile with (example):
-```
+```ruby
 Vagrant.configure("2") do |config|
   config.vm.box = "bento/almalinux-9"
   config.vm.box_version = "202511.24.0"
+
+  # if "Operation is not supported" (trying to use "-T" flag for snapshots):
+  config.vm.provider "vmware_desktop" do |v|
+    v.force_vmware_license = "workstation"
+  end
 end
 ```
 
