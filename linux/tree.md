@@ -1,5 +1,5 @@
 print files and directories up to 'num' levels of depth (where 1 means the current directory):
- ```bash
+```bash
 tree -L {{num}}
 ```
 
