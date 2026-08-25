@@ -1,9 +1,10 @@
 ### basic configuration
-set name, mail, and editor:
+set name, mail, editor, and default branch name:
 ```
 git config --global user.name "Name Surname"
 git config --global user.email "example@dot.com"
 git config --global core.editor "vim"
+git config --global init.defaultBranch "main"
 ```
 ### fixing mistakes
 merge main before pushing code:
