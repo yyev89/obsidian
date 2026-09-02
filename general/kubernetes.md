@@ -200,3 +200,22 @@ update local kubeconfig to use EKS cluster:
 ```bash
 aws eks update-kubeconfig --region eu-central-1 --name production-demo
 ```
+
+### Events
+
+list all events:
+```bash
+kubectl get events
+```
+
+list only Warnings:
+```bash
+kubectl get ev --field-separator type=Warning
+```
+
+get more info:
+```bash
+kubectl explain events
+# Drill down into specifics:
+kubectl explain events.type
+```
