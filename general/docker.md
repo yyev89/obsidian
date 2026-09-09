@@ -70,6 +70,33 @@ build an image with tag in current dir:
 docker build -t api-golang:1 .
 ```
 
+check containers performance:
+```bash
+# Live:
+docker stats
+# Print and quit:
+docker stats --no-stream
+```
+
+check storage usage by containers:
+```bash
+docker system df
+```
+
+list processes inside running container:
+```bash
+docker container top my-ubuntu-container
+```
+
+run another init process __tini__ to make sure when the parent process exits, children are reaped:
+```bash
+docker run --rm -it --init alpine:3.16 sh
+```
+
+inspect image layers and their size:
+```bash
+docker image history nginx:latest
+```
 ### Running and docker-compose
 
 run container in detatched mode:
