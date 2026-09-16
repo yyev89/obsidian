@@ -14,6 +14,16 @@ list all namespaces:
 kubectl get namespaces[ns]
 ```
 
+list resources in specific namespace:
+```bash
+kubectl get pods --namespace[-n] kube-system
+```
+
+list resources in all namespaces at once:
+```bash
+kubectl get pods --all-namespaces[-A]
+```
+
 create namespace in the cluster from cli:
 ```bash
 kubectl create namespace <name>
@@ -36,6 +46,7 @@ kubectl config set-context --current --namespace <name>
 
 delete namespace:
 ```bash
+# --wait=false option to exit immidiately:
 kubectl delete namespace <name>
 kubectl delete -f Namespace.yaml
 ```
@@ -52,7 +63,7 @@ list all pods:
 kubectl get pods
 # With additional info:
 kubectl get pods -o wide
-kubectl get pods -o yaml | yq
+kubectl get pod <name> -o yaml | yq .metadata.labels
 ```
 
 apply pod configuration:
@@ -80,6 +91,44 @@ change fields on running pod via default editor:
 ```bash
 kubectl edit pod hello-pod
 ```
+
+list pods with their labels:
+```bash
+kubectl get pods --show-labels
+# Show specific labels:
+kubectl get pods --label-columns[-L] app,rel
+```
+
+add a label to a pod:
+```bash
+kubectl label pod kiada-canary app=kiada rel=canary
+# To all pods:
+kubectl label pod --all suite=kiada-suite
+# Remove a label:
+kubectl label pod --all suite-
+```
+
+filter output by a label:
+```bash
+kubectl get pods -l app=quote,rel=!canary
+# Set-based selector:
+kubectl get pods -l 'app in (quiz, quote)' -L app
+kubectl get pods -l 'app notin (kiada)'
+# List pods which have/don't have the rel label:
+kubectl get pods -l rel
+kubectl get pods -l '!rel'
+```
+
+list pods running on the certain node:
+```bash
+kubectl get pods --field-selector spec.nodeName=kind-worker
+```
+
+list pods which are not running:
+```bash
+kubectl get pods --field-selector status.phase!=Running
+```
+
 ### ReplicaSet
 
 **labels** are the link between RS and Pods
