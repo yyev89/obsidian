@@ -97,7 +97,7 @@ inspect image layers and their size:
 ```bash
 docker image history nginx:latest
 ```
-### Running and docker-compose
+### Running
 
 run container in detatched mode:
 ```bash
@@ -146,22 +146,6 @@ set restarting options (always, unless-stopped, never):
 docker run --restart unless-stopped ubuntu
 ```
 
-build, run, stop and remove containers with docker-compose.yml:
-```bash
-# Build:
-docker compose build
-# Build and run:
-docker compose up --build
-# Run attached:
-docker compose up
-# Run not attached:
-docker compose up -d
-# Stop:
-docker compose stop
-# Remove everything (+volumes, +networks etc):
-docker compose down
-```
-
 delete all containers:
 ```bash
 docker rm $(docker ps -aq) -f
@@ -184,4 +168,51 @@ docker buildx use <name>
 build a container for multiple architectures:
 ```bash
 docker buildx build --platform=linux/amd64,linux/arm64 -t yyarynich/ddd-book:ch8.1 --push .
+```
+
+### Docker Compose
+
+test configuration:
+```bash
+docker compose config
+```
+
+build, run, stop and remove containers with docker-compose.yml:
+```bash
+# Build:
+docker compose build
+# Build and run:
+docker compose up --build
+# Run attached:
+docker compose up
+# Run not attached:
+docker compose up -d
+# Stop:
+docker compose stop
+# Remove everything (+volumes, +networks etc):
+docker compose down
+```
+
+enter a running container:
+```bash
+docker compose exec mongodb bash
+```
+
+pause all services:
+```bash
+docker compose pause
+# Start again:
+docker compose unpause
+```
+
+set a default value for the variable:
+```yaml
+environment:
+	PASSWORD: ${HUBOT_PASSWORD:-bot_pass!}
+```
+
+ask a variable value to be set beforehand:
+```yaml
+environment:
+	PASSWORD: ${HUBOT_PASSWORD:?HUBOT_PASSWORD must be set!}
 ```
