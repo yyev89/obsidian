@@ -233,6 +233,48 @@ create a ConfigMap from a file called `cmfile.txt`:
 kubectl create cm testmap2 --from-file cmfile.txt
 ```
 
+set an environment variable from a ConfigMap entry:
+```yaml
+...
+spec:
+  containers:
+  - name: kiada
+    env:
+    - name: INITIAL_STATUS_MESSAGE
+      valueFrom:
+        configMapKeyRef:
+          name: kiada-config
+          key: status-message
+          optional: true # Pod can run even without this env set
+          ...
+```
+
+inject the entire ConfigMap into environment variables:
+```yaml
+...
+spec:
+  containers:
+  - name: kiada
+    envFrom:
+    - configMapRef:
+        name: kiada-config
+        optional: true
+        ...
+```
+
+prevent any editing of a ConfigMap:
+```yaml
+immutable: true
+```
+
+generate YAML-manifest on the fly with base64-encoded values:
+```bash
+kubectl create secret generic my-credentials \
+	--from-literal user=my-username \
+	--from-literal pass=my-password \
+	--dry-run=client -o yaml
+```
+
 create a new Secret called `creds`:
 ```bash
 kubectl create secret generic creds --from-literal user=yye89 --from-literal pwd=Password123
