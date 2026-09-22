@@ -6,14 +6,14 @@ journalctl -b -p err
 ```
 
 levels:
-0 - emerg
-1 - alert
-2 - crit
-3 - err
-4 - warning
-5 - notice
-6 - info
-7 - debug
+0 - emerg;
+1 - alert;
+2 - crit;
+3 - err;
+4 - warning;
+5 - notice;
+6 - info;
+7 - debug;
 
 delete journal logs which are older than 2 days:
 ```bash
