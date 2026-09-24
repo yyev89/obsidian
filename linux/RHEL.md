@@ -1,3 +1,4 @@
+### Patching
 
 update all installed packages using only security-related updates:
 ```bash
@@ -63,4 +64,26 @@ dnf update --downloadonly
 install DNF Automatic so package updates can be downloaded or applied automatically according to its configuration:
 ```bash
 dnf install dnf-automatic
+```
+
+### SELinux
+
+list all SELinux port definitions and show which SELinux types are assigned to each port:
+```bash
+semanage port -l
+```
+
+add TCP port **2022** to the SELinux `ssh_port_t` type, allowing SSH to use this non-default port:
+```bash
+semanage port -a -t ssh_port_t -p tcp 2022
+```
+
+list all SELinux boolean settings and show whether each one is currently enabled (on) or disabled (off):
+```bash
+getsebool -a
+```
+
+enable the SELinux boolean `httpd_enable_homedirs`, allowing the Apache HTTP server to access users home directories. `-P` makes the change persistent across reboots:
+```bash
+setsebool [-P] httpd_enable_homedirs=1
 ```
