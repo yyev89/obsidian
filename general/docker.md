@@ -170,6 +170,19 @@ build a container for multiple architectures:
 docker buildx build --platform=linux/amd64,linux/arm64 -t yyarynich/ddd-book:ch8.1 --push .
 ```
 
+run a container with privileges:
+```bash
+docker run -ti --rm --privileged=true spkane/train-os /bin/bash
+```
+
+limit privileges to only we need using right capabilities:
+```bash
+# Permission to change MAC address:
+docker run -ti --rm --cap-add=NET_ADMIN spkane/train-os /bin/bash
+# Deny running tcpdump:
+docker run -ti --rm --cap-drop=NET_RAW spkane/train-os tcpdump -i eth0
+```
+
 ### Docker Compose
 
 test configuration:
