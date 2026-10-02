@@ -307,3 +307,52 @@ resource "aws_instance" "region_1" {
 	instance_type = "t2.micro"
 }
 ```
+
+examples of _validation blocks_ (also look for _preconditions_ and _postconditions_):
+```hcl
+variable "instance_type" {
+	description = "The type of EC2 Instances to run (e.g. t2.micro)"
+	type = string
+	
+	validation {
+		condition = contains(["t2.micro", "t3.micro"], var.instance_type)
+		error_message = "Only free tier is allowed: t2.micro | t3.micro."
+	}
+}
+```
+
+```hcl
+variable "min_size" {
+	description = "The minimum number of EC2 Instances in the ASG"
+	type = number
+	
+	validation {
+		condition = var.min_size > 0
+		error_message = "ASGs can't be empty or we'll have an outage!"
+	}
+}
+```
+
+### Version control
+
+__tfenv__ to install and switch between multiple versions of Terraform:
+```bash
+# Install:
+tfenv install 1.2.3
+# List versions:
+tfenv list
+# Select a version:
+tfenv use 1.2.3
+```
+
+also supports _.terraform-version_ files
+
+upgrade a provider version after editing _required_providers_ block:
+```bash
+terraform init -upgrade
+```
+
+pin a module version by using source URLs:
+```hcl
+source = "git@github.com:foo/modules.git//services/hello-world-app?ref=v0.0.5"
+```
