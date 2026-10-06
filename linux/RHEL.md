@@ -87,3 +87,29 @@ enable the SELinux boolean `httpd_enable_homedirs`, allowing the Apache HTTP ser
 ```bash
 setsebool [-P] httpd_enable_homedirs=1
 ```
+
+### Logging
+
+send the message "ERROR" to the system logging facility using the default syslog priority/facility:
+```bash
+logger "ERROR"
+```
+
+send "MSG" with the tag hal and info priority to syslog:
+```bash
+logger -t hal -p info "MSG"
+```
+
+send "ERR" with the authpriv facility and err severity, typically for security/authentication-related errors:
+```bash
+logger -p authpriv.err "ERR"
+```
+
+configuration files and directories:
+
+- /var/log/messages — general system log containing messages from many system services and kernel components
+- /var/log/error — a log file intended for error messages, though its presence and usage depend on the RHEL logging configuration
+- /var/log/spooler — stores messages related to mail/news/printing and other spooling services, when configured
+- /etc/rsyslog.conf -> rules block — defines which log messages are collected and where they should be written or forwarded, based on facility and severity
+- /etc/logrotate.conf — the main configuration file controlling log rotation, compression, retention, and cleanup policies
+- /etc/logrotate.d — contains application/service-specific logrotate configuration files that supplement the main logrotate.conf
