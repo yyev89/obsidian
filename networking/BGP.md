@@ -1,73 +1,105 @@
-Ground rules:
-* an AS must look like a single "thing" from the outside
-	- internal routes should not be exposed
-	- policy shoud apper the same from all edges
-- whoever has the packet determines how it will exit their AS
-- it should be possible to ask to enter an AS at a particular point
-- it should be possible to ask for other special packet handling
-- it should be possible to hide information when needed without impacting overall routing operation
-- it should be possible to scale to hundreds of milliones of routes, paths etc.
+BGP fundamentals:
 
-**NLRI** - network layer reachability information - reachable destination of any kind (v4, v6 etc)
+- forms static neighborships
+- uses TCP port 179, so it is a client/server relationship
+- advertises NLRI (network layer reachability information): prefix with mask, path attributes (PA)
 
-**Attribute** - anything describing info about NLRI (policy markers, routing info etc)
+Ignore paths that:
+- have a next hop IP address that is not reachable
+- have a path that contains your own local AS number
 
-**Route** - NLRI + attributes
+1. Prefer the path with the highest WEIGHT
+2. Prefer the path with the highest LOCAL_PREF
+3. Prefer the path what was locally ORIGINATED
+4. Prefer the path with the shortest AS_PATH
+5. Prefer the path with the lowest ORIGIN type
+6. Prefer the path with the lowest Multi-Exit Discriminator (MED)
+7. Prefer eBGP over iBGP paths
+8. Prefer the path with the lowest IGP metric to the BGP next hop
+9. Prefer the older path
+10. Prefer the path with the peering router that has the lower router ID
+11. Prefer the path with the peer who has the lower neighbor address
 
-**Speaker** - a device that runs BGP, the BGP process running on a device
-
-**Peer** - a device running BGP that has a relationship with the local device
-
-#### Path attributes:
-
-- Weight - influences a best route for the router (outbound)
-- Local Preference - influences the best route for all routers in an AS (outbound)
-- AS_Path - lists the number of ASN's in the path (in/outbound)
-- Origin - valued implying if route is IGP or EGP (outbound)
-- MED - influences best route for routers in another AS (inbound)
-
-#### Internal and External BGP
-
-iBGP:
-- BGP connectivity within the same AS
-- routers do not update AS path
-- should always be meshed
-
-eBGP:
-- external connectivity to other AS's
-- routers update AS path
-
-Public ASNs: 64,496 through 64,511 (assigned by IANA)
-Private ASNs: 64,512 through 65,534
-
-#### Updates:
-- default route only
-- full updates
-- partial updates 
-
-#### Advertising routes:
-- network command
-- residstribution
-- propagation 
-- aggregate-address command
-
-#### Synchronization:
-- if an AS provides transit service to another AS, then BGP should not advertise a route until all of the routers within the AS have learned about the route via an IGP
-
-### Configuration
-
-#### BGP configuration requirements:
-- the router's own ASN
+check configured possible neighbors (only with prefixed received are actually formed):
 ```
-router bgp {asn}
-```
-- the IP address of each neighbor and that neighbor's ASN
-```
-neighbor {ip-address} remote-as {remote-asn}
+show ip bgp summary | ex Active|Idle
 ```
 
-#### BGP neighbor requirements:
-- a local router's ASN must match the neighboring router's reference to that ASN
-- the BGP router IDs of the two routers must not be the same
-- if configured, auth must pass
-- each router must establish a TCP connection with its neighbors
+show which prefixes are learned from whom:
+```
+show ip bgp
+```
+
+show more details - all attributes for each network:
+```
+show ip bgp 1.0.0.0/24
+```
+
+Autonomous System (AS) - a collection of networks overseen by one organization.
+Internet is made up of many AS.
+Interior Gateway Protocols (IGP) operate within an AS (EIGRP, OSPF, IS-IS).
+Exterior Gateway Protocols (EGP) connect different autonomous systems: MP-BGP (multi-protocol v4), Different Address-Families.
+
+AS Numbers:
+- 2 byte original range 1 to 65535
+- 4 byte new range 65535 to 4294967295
+
+Public - assigned by IANA through RIRs and ISPs:
+- 1 to 64511
+- 65536 to 4199999999
+
+Private - assigned by you:
+- 64512 to 65534
+- 4200000000 to 4294967294
+
+eBGP - peering between directly connected routers in different AS.
+iBGP - peering between any routers in same AS.
+
+Configuration example
+our side:
+```
+conf t
+router bgp 65012
+neighbor 203.0.113.89 remote-as 65000
+address-family ipv4 unicast
+neighbor 203.0.113.89 activate
+do sho run | s bgp
+do sho ip bgp sum
+```
+
+remote side:
+```
+conf t
+router bgp 65000
+neighbor 203.0.113.91 remote-as 65012
+address-family ipv4 unicast
+neighbor 203.0.113.91 activate
+do sho run | s bgp
+do sho ip bgp sum
+do sho ip bgp nei 203.0.113.89
+```
+
+auth (MD5-hash protected):
+```
+neighbor 203.0.113.91 password letmein
+```
+
+hard reset:
+```
+do clear ip bgp *
+```
+
+soft reset:
+```
+do clear ip bgp * in[out]
+```
+
+Phases:
+- **Idle** - BGP process is waiting for next attempt to establish a peering
+- **Connect** - TCP connection beeing established
+- **Active** - TCP connection was not successfull, a second attempt is made, if successful Open msg is sent, if not return to Idle state
+- **Open sent** - BPG Open messages are being sent
+- **Open confirm** - BGP Open messages have been successfully sent and received
+- **Established** - neighbor details match, peering is successful, Update messages can be exchanged
+
+eBPG neighbors could be not directly connected, but need to change TTL setting (by default it assumes routers to be directly connected - minimum incoming 0, outgoing 1). iBGP TTL is 255 by default.
