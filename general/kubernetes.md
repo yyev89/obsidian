@@ -310,3 +310,15 @@ kubectl explain events
 # Drill down into specifics:
 kubectl explain events.type
 ```
+
+### Storage
+
+Persistent volume access modes:
+- **ReadWriteOncePod** (RWOP) - the volume can be mounted in read/write mode by a single pod across the entire cluster
+- **ReadWriteOnce** (RWO) - the volume can be mounted by a single cluster node in read/write mode. While it's mounted to the node, other nodes can't mount the volume. However, multiple pods on the node can all read and write to the volume
+- **ReadWriteMany** (RWX) - the volume can be mounted in read/write mode on multiple worker nodes at the same time
+- **ReadOnlyMany** (ROX) - the volume can be mounted on multiple worker nodes simultaneously in read-only mode
+
+Configuring the volume mode:
+- **Filesystem** - when the PersistentVolume is mounted in a container, it is mounted to a directory in the file tree of the container (default)
+- **Block** - when a pod uses a PersistentVolume, the volume is made available to the app in the container as a raw block device (without a filesystem). This allows the app to read and write data without any filesystem overhead. This mode is typically used by special types of apps, such as databases
