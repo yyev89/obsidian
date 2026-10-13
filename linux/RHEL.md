@@ -113,3 +113,40 @@ configuration files and directories:
 - /etc/rsyslog.conf -> rules block — defines which log messages are collected and where they should be written or forwarded, based on facility and severity
 - /etc/logrotate.conf — the main configuration file controlling log rotation, compression, retention, and cleanup policies
 - /etc/logrotate.d — contains application/service-specific logrotate configuration files that supplement the main logrotate.conf
+
+### System roles
+
+configuring hosts with system roles and ansible:
+```bash
+subscription-manager repos --enable=ansible-automation-platform-2.2-for-rhel-9-x86_64-rpms
+dnf install -y ansible rhel-system-roles
+# Roles are usually located at: /usr/share/ansible/collections/ansible_collections/redhat/rhel_system_roles/
+```
+config file example:
+```yaml
+---
+- hosts: localhost
+  vars:
+    kernel_settings_sysctl:
+      - name: vm.swappiness
+        value: 20
+      - name: vm.dirty_ration
+        value: 40
+      - name: vm.dirty_expire_centisecs
+        value: 500
+      - name: vm.dirty_writeback_centisecs
+        value: 100
+      - name: kernel.sem
+        value: "250 32000 100 128"
+    tlog_scope_sssd: all
+    timesync_ntp_servers:
+      - hostname: time-d-b.nist.gov
+        iburst: yes
+      - hostname: 0.rhel.pool.ntp.org
+        iburst: yes
+  roles:
+    - role: rhel-system-roles.kernel_settings
+    - role: rhel-system-roles.tlog
+    - role: rhel-system-roels.timesync
+```
+
