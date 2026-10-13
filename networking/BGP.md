@@ -103,3 +103,51 @@ Phases:
 - **Established** - neighbor details match, peering is successful, Update messages can be exchanged
 
 eBPG neighbors could be not directly connected, but need to change TTL setting (by default it assumes routers to be directly connected - minimum incoming 0, outgoing 1). iBGP TTL is 255 by default.
+
+iBGP between loopbacks:
+
+```
+conf t
+router bgp 65012
+neighbor 192.168.255.2 remote-as 65012
+neighbor 192.168.255.2 update-source loopback 192
+
+neighbor 192.168.255.1 remote-as 65012
+neighbor 192.168.255.1 update-source loopback 192
+```
+
+Advertising routes 
+
+Network command allows you to advertise a prefix to your neighbor that you know about in your routing table. Your network command must be exact and match a prefix in the local routing table. If not found in the routing table, it will not be advertised.
+
+```
+router bgp 65012
+do sho ip bgp # empty for now
+address-family ipv4 unicast
+network 203.0.113.0 mask 255.255.255.248
+network 203.0.113.8 mask 255.255.255.248
+network 203.0.113.16 mask 255.255.255.248
+network 203.0.113.24 mask 255.255.255.248
+```
+
+Redistribution imports existing routes from the routing table into the BGP table and advertises them to neighbors.
+
+```
+redistribute connected route-map BGP_WEBINAR
+```
+
+Summarizing routes
+
+Aggregate address takes entries in the BGP table and aggregates them together as a summary and advertises the summary.
+Instead of advertising:
+- 198.51.0.0/24
+- 198.51.1.0/24
+- 198.51.2.0/24
+- 198.51.3.0/24
+
+It would be:
+- 198.51.0.0/22
+
+```
+aggregate-address 203.0.113.0 255.255.255.224 summary-only
+```
