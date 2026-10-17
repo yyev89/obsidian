@@ -208,6 +208,29 @@ kubectl expose deployment svc-test --type=LoadBalancer
 # Delete:
 kubectl delete svc svc-test
 ```
+
+change the selector of the service:
+```bash
+kubectl set selector service quiz app=quiz
+```
+
+make a headless service (cluster DNS returns not a single A record for Cluster IP, but multiple for each pod):
+```yaml
+...
+spec:
+  clusterIP: None
+...
+```
+
+don't forward traffic to all pods in the cluster, but only to the pods that are on the same node as the client pod:
+```yaml
+...
+spec:
+  internalTrafficPolicy: Local
+```
+
+_externalTrafficPolicy_ field is used to prevent unnecessary network hops between nodes when external traffic arrives in the cluster.
+
 ### DaemonSet
 
 - runs a copy of the specified pod on all (or a specified subset of) nodes in the cluster except controllers
