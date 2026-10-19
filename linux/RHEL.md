@@ -150,3 +150,41 @@ config file example:
     - role: rhel-system-roels.timesync
 ```
 
+### Shell
+
+variables:
+```bash
+set | less
+```
+
+**PS1** - how your prompt looks like
+
+**PS2** - how your secondary prompt looks like (for example with new lines separated by "\")
+
+show all configured aliases:
+```bash
+alias
+```
+
+run a command directly (without an alias if any):
+```bash
+\ls
+```
+
+during the login into the system (flow):
+```
+/etc/profile
+  /etc/profile.d/*.sh
+~/.bashrc
+  /etc/profile.d/*.sh
+```
+
+when opening a new tab in the terminal (new environment):
+```
+~/.bashrc
+  /etc/profile.d/*.sh
+```
+
+*.bash_profile* - for env variables (like PATH modification etc)
+
+*.bashrc* - for running commands at the start of the shell (RC - run commands)
