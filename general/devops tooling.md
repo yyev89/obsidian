@@ -10,7 +10,7 @@ check if service is working on port 80:
 ```bash
 # -z scan mode, -v output mode, -w timeout
 nc -zvw 3 google.com 80
-# in Kubernetes pod:
+# In Kubernetes pod:
 kubectl exec -it my-pod -- /bin/sh
 nc -zvw 3 my-service 80
 ```
@@ -40,4 +40,12 @@ vmwareStartVmnet() {
    "$BINDIR"/vmware-networks --start >> $VNETLIB_LOG 2>&1
    chmod a+rw /dev/vmnet*
 }
+```
+
+linux filesystem check:
+```bash
+# List options:
+tune2fs -l /dev/sda1
+# Set maximum mount count before checking:
+tune2fs -c 10 /dev/sda1
 ```
