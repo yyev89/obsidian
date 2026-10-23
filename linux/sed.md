@@ -39,3 +39,8 @@ insert header as 1st line of the document:
 ```bash
 sed '1iID|Name|Job|Email|Salary' employees.txt
 ```
+
+remove blank lines from the document:
+```bash
+sed -n '/^$/d' data.txt
+```
