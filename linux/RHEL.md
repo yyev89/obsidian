@@ -188,3 +188,40 @@ when opening a new tab in the terminal (new environment):
 *.bash_profile* - for env variables (like PATH modification etc)
 
 *.bashrc* - for running commands at the start of the shell (RC - run commands)
+
+### Virtual machines
+
+interact with running virtual machines in the cockpit:
+```bash
+virsh
+```
+
+show all machines (both running and shutted down):
+```bash
+virsh list --all
+```
+
+gracefully stop a vm:
+```bash
+virsh shutdown ubuntu20
+```
+
+poweroff a vm:
+```bash
+virsh destroy ubuntu20
+```
+
+get information for importing:
+```bash
+virsh dumpxml ubuntu20
+```
+
+set a vm to automatically boot with the host (hypervisor):
+```bash
+virsh autostart ubuntu20
+```
+
+import a vm with XML file:
+```bash
+virsh define --file <path-to-xml-definition>
+```
