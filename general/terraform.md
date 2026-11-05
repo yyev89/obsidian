@@ -356,3 +356,10 @@ pin a module version by using source URLs:
 ```hcl
 source = "git@github.com:foo/modules.git//services/hello-world-app?ref=v0.0.5"
 ```
+
+### Lifecycle management
+
+- *create_before_destroy* - if a replacement is needed, it will be created before the old instance is removed
+- *prevent_destroy* - it is impossible to destroy the resource
+- *ignore_changes* - not to update the resource if the only attributes that changed are in the list (*all* - tells to ignore any change)
+- *replace_triggered_by* - force replacement on resources when other resources change
